@@ -2,6 +2,7 @@
 import { useUser } from "@clerk/nextjs";
 import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
+import Info from "../components/Info";
 
 interface Itinerary {
   id: number;
@@ -77,26 +78,15 @@ const Page = () => {
       {itineraries.length === 0 ? (
         <h2>No itineraries found.</h2>
       ) : (
-        <ul className="space-y-4 flex-1 overflow-y-scroll py-2">
+        <div className=" overflow-x-scroll ">
+          <div className="w-fit mx-5 lg:mx-10 flex flex-row gap-15 mb-20 mt-5">
           {itineraries.map((itinerary) => (
-            <li key={itinerary.id} className="p-4 border rounded-lg shadow-md">
-              <h2 className="text-xl font-semibold">{itinerary.city}</h2>
-              <h3>
-                <strong>Interests:</strong> {itinerary.interests}
-              </h3>
-              <h3>
-                <strong>Travel Date:</strong> {itinerary.travel_date}
-              </h3>
-              <h3>
-                <strong>Travel Time:</strong> {itinerary.travel_time}
-              </h3>
-              <h3>
-                <strong>Details:</strong>{" "}
-                <ul>{formatItinerary(itinerary.itinerary)}</ul>
-              </h3>
-            </li>
+            <Info id={itinerary.id} user={itinerary.user} city={itinerary.city} interests={itinerary.interests} travel_date={itinerary.travel_date} travel_time={itinerary.travel_time} itinerary={itinerary.itinerary}/>
           ))}
-        </ul>
+        </div>
+
+        </div>
+        
       )}
     </div>
   );
