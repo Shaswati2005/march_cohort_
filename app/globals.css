@@ -24,3 +24,43 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+
+.bg1{
+  background:url('/bg11.png') scroll ;
+  background-position: center;
+  background-size: cover;
+
+
+}
+
+.gowild{
+  background-color: #8bc34a;
+}
+
+.tgowild{
+  text-decoration-color:#8BC34A ;
+}
+
+
+.zoomed-image {
+  width: 100%; /* Start at 100% of the frame's width */
+  height: auto; /* Maintain aspect ratio */
+  transition: transform 2s linear; /* Smooth animation */
+  transform-origin: center; /* Zoom from the center */
+}
+
+@keyframes zoomIn {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(2);
+  }
+}
+
+
+
+.frame.animated .zoomed-image {
+  animation: zoomIn 10s linear infinite alternate; /* Apply animation */
+}

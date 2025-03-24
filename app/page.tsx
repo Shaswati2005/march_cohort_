@@ -1,103 +1,111 @@
+'use client'
+
 import Image from "next/image";
+import Navbar from "./components/Navbar";
+import Background from "./components/Background";
+import Dropdown from "./components/Dropdown";
+import { useState } from "react";
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+  const [location, setLocation] = useState<string | null>(null);
+  const [type, setType] = useState<string | null>(null);
+  const [guest, setGuest] = useState<number | null>(null); // Assuming guest is a number
+  const [dates, setDates] = useState<Date[] | null>(null);
+
+
+  const handleLocationSelect = (selectedLocation: string) => {
+    setLocation(selectedLocation);
+  };
+
+
+  const locations= [
+    {label:'delhi', value:'delhi'},
+    {label:'raipur', value:'delhi'},
+    {label:'shimla', value:'delhi'},
+    {label:'puri', value:'delhi'},
+    {label:'kolkata', value:'delhi'}
+  ]
+  
+
+  return (
+    <div className="w-screen h-full  bg-white flex-col items-center justify-center">
+    <div className="w-screen h-full bg1 " >
+    
+      <div className="pt-30 flex flex-col   gap-10 items-center lg:items-start justify-end  lg:p-30 p-20">
+        <div className=" flex-col gap-10">
+          <h1 className="font-extrabold  text-5xl lg:text-9xl text-white ">om travels</h1>
+          <h2 className="lg:pl-[30%] pl-[5%] tgowild font-stretch-ultra-expanded  text-lg lg:text-3xl">lets personalise yoour travels</h2>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+        <div className="lg:px-45 lg:py-20">
+        <button className="lg:text-2xl lg:px text-lg text-white w-40 bg-[#6ca22d] lg:w-50 py-3 border-1 rounded-sm hover:bg-white hover:text-[#7bb471] hover:shadow-2xs shadow-[#8bc34a] hover:scale-105 transition-all ">
+          lets get started
+        </button>
+
+        </div>
+        
+      </div>
+    
+      </div>
+
+
+      
+
+
+      <div className="h-full w-screen  py-10 md:py-20 flex flex-col items-center justify-center bg-white text-black z-10">
+
+
+        <div className="flex flex-col lg:flex-row  items-center gap-1 ">
+          <div className="  w-60 h-20 hover:shadow-2xl hover:scale-105 shadow-[#6ca22d] p-3 transition-all  text-[#6ca22d] border border-[#6ba22d31]">
+            <Dropdown title="locations" label="locations" items={locations} onSelect={handleLocationSelect}/>
+          </div>
+          <div className="  w-60 h-20 hover:shadow-2xl hover:scale-105 shadow-[#6ca22d] p-3 transition-all  text-[#6ca22d] border border-[#6ba22d31]">
+            <Dropdown title="locations" label="locations" items={locations} onSelect={handleLocationSelect}/>
+          </div>
+          <div className="  w-60 h-20 hover:shadow-2xl hover:scale-105 shadow-[#6ca22d] p-3 transition-all  text-[#6ca22d] border border-[#6ba22d31]">
+            <Dropdown title="locations" label="locations" items={locations} onSelect={handleLocationSelect}/>
+          </div>
+          <div className="  w-60 h-20 hover:shadow-2xl hover:scale-105 shadow-[#6ca22d] p-3 transition-all  text-[#6ca22d] border border-[#6ba22d31]">
+            <Dropdown title="locations" label="locations" items={locations} onSelect={handleLocationSelect}/>
+          </div>
+
+        </div>
+      </div>
+
+
+      <div  className="px-20 py-20 w-screen h-full  flex items-start  justify-center gap-5">
+        <input type="string" placeholder="search locations"  className="px-5 py-2  bg-[#6ba22d27] text-[#5da110] w-100 rounded-full text-start h-full">
+        
+        </input>
+        <div className="hover:bg-[#599a0e] bg-white hover:text-white text-[#599a0e] w-fit h-fit content-center px-2 py-2 rounded-lg border-[#599a0e] ">
+         filter
+        </div>
+      </div>
+
+      <div className="px-20 py-20 w-screen h-full  flex items-center justify-center">
+        <div className="px-5 py-2 rounded-lg bg-[#6ba22d27] text-[#5da110] w-50 text-center h-full">popular activities</div>
+      </div>
+
+
+
+      <div className="flex flex-row items-center justify-between pl-20 ">
+        <div className="w-[800px] h-fit overflow-hidden relative border border-black">
+           <img
+          src="/bg1.jpg"
+          className="transition-transform duration-10000 ease-linear transform-origin-center       In_10s_linear_infinite_alternate "/>
+        </div>
+
+        <div>
+          <div className=" w-full h-full  flex flex-col items-center justify-items-start">
+          <div className="px-5 py-2 rounded-lg bg-[#6ba22d27] text-[#5da110] w-50 text-center h-full">About Company</div>
+          </div>
+
+        </div>
+
+      </div>
+
+      
+    
     </div>
   );
 }
