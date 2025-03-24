@@ -19,7 +19,7 @@ const Page = () => {
   const [loading, setLoading] = useState(true);
   const [itineraries, setItineraries] = useState<Itinerary[]>([]);
   const params = useParams();
-  
+
   const userId = params.userid ? String(params.userid) : "";
   useEffect(() => {
     if (!params.userid) {
@@ -61,7 +61,7 @@ const Page = () => {
   }
 
   return (
-    <div className="p-6 w-dvw max-h-dvh  overflow-hidden flex flex-col justify-start mt-[5rem] items-center text-[#4db23b] bg-white ">
+    <div className="p-6 w-dvw h-dvh  overflow-hidden flex flex-col justify-start mt-[5rem] items-center text-[#4db23b] bg-white ">
       <h1 className="text-2xl font-bold mb-4">
         {user?.firstName}s Itineraries
       </h1>
@@ -71,13 +71,19 @@ const Page = () => {
       ) : (
         <div className=" overflow-x-scroll ">
           <div className="w-fit mx-5 lg:mx-10 flex flex-row gap-15 mb-20 mt-5">
-          {itineraries.map((itinerary) => (
-            <Info id={itinerary.id} user={itinerary.user} city={itinerary.city} interests={itinerary.interests} travel_date={itinerary.travel_date} travel_time={itinerary.travel_time} itinerary={itinerary.itinerary}/>
-          ))}
+            {itineraries.map((itinerary) => (
+              <Info
+                id={itinerary.id}
+                user={itinerary.user}
+                city={itinerary.city}
+                interests={itinerary.interests}
+                travel_date={itinerary.travel_date}
+                travel_time={itinerary.travel_time}
+                itinerary={itinerary.itinerary}
+              />
+            ))}
+          </div>
         </div>
-
-        </div>
-        
       )}
     </div>
   );

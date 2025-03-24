@@ -66,7 +66,7 @@ export default function Home() {
   }
 
   return (
-    <div className="w-screen h-full font-sans bg-white flex-col items-center justify-center">
+    <div className="w-screen h-screen font-sans bg-white flex-col items-center justify-center">
       <div className="w-screen h-full bg1 ">
         <div className="pt-30 flex flex-col   gap-10 items-center lg:items-start justify-end  lg:p-30 p-20">
           <div className=" flex-col gap-10">
