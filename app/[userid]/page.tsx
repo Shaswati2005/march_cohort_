@@ -19,16 +19,7 @@ const Page = () => {
   const [loading, setLoading] = useState(true);
   const [itineraries, setItineraries] = useState<Itinerary[]>([]);
   const params = useParams();
-  const formatItinerary = (text: string | null | undefined) => {
-    if (!text) return <p>No itinerary available</p>; // Handle null case gracefully
-
-    return text
-      .split("\n")
-      .filter((line) => line.startsWith("*")) // Only keep bullet points
-      .map((line, index) => (
-        <li key={index}>{line.replace(/^\* /, "")}</li> // Remove '*' from start
-      ));
-  };
+  
   const userId = params.userid ? String(params.userid) : "";
   useEffect(() => {
     if (!params.userid) {
