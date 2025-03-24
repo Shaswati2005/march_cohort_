@@ -101,19 +101,58 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="flex flex-row items-center justify-between pl-20 ">
-        <div className="w-[800px] h-fit overflow-hidden relative border border-black">
+      <div className="flex flex-col md:flex-row items-center justify-between pl-20 ">
+        <div className="max-w-[800px] h-fit overflow-hidden relative border border-black">
           <img
             src="/bg1.jpg"
             className="transition-transform duration-10000 ease-linear transform-origin-center       In_10s_linear_infinite_alternate "
           />
         </div>
 
-        <div>
-          <div className=" w-full h-full  flex flex-col items-center justify-items-start">
-            <div className="px-5 py-2 rounded-lg bg-[#6ba22d27] text-[#5da110] w-50 text-center h-full">
+        <div className="m-5 h-full flex flex-col items-center justify-items-start ">
+          <div className=" w-full h-full gap-5 flex flex-col items-center  justify-items-start">
+            <div className="md:px-5 py-2 rounded-lg bg-[#6ba22d27] text-[#5da110] w-50 text-center h-full">
               About Company
             </div>
+
+
+            <div className="flex flex-row items-center p-3 rounded-xl gap-5 max-w-150 hover:bg-[#5da110] bg-white text-[#5da110] hover:text-white text-sm">
+              <div className="w-15 h-15 rounded-full bg-[#5da110]">
+
+              </div>
+              <div className="w-full h-fit text-wrap ">
+              has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type
+
+              </div>
+
+            </div>
+
+
+            <div className="flex flex-row items-center p-3 rounded-xl gap-5 max-w-150 hover:bg-[#5da110] bg-white text-[#5da110] hover:text-white text-sm">
+              <div className="w-15 h-15 rounded-full bg-[#5da110]">
+
+              </div>
+              <div className="w-full h-fit text-wrap ">
+              has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type
+
+              </div>
+
+            </div>
+
+
+            <div className="flex flex-row items-center p-3 rounded-xl gap-5 max-w-150 hover:bg-[#5da110] bg-white text-[#5da110] hover:text-white text-sm">
+              <div className="w-15 h-15 rounded-full bg-[#5da110]">
+
+              </div>
+              <div className="w-full h-fit text-wrap ">
+              has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type
+
+              </div>
+
+            </div>
+
+
+
           </div>
         </div>
       </div>
