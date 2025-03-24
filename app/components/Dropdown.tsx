@@ -10,11 +10,15 @@ interface DropdownProps {
   title?:string;
   label?: string;
   items: DropdownItem[];
+  type:string;
   onSelect: (value: string) => void;
 }
 
-const Dropdown: React.FC<DropdownProps> = ({title, label, items, onSelect }) => {
+const Dropdown: React.FC<DropdownProps> = ({title, label, items, onSelect,type }) => {
+
+  const [val, setval] = useState({type});
   const [isOpen, setIsOpen] = useState(false);
+ 
   const [selectedValue, setSelectedValue] = useState<string | null>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
@@ -44,7 +48,7 @@ const Dropdown: React.FC<DropdownProps> = ({title, label, items, onSelect }) => 
 
   return (
     <div className="relative flex flex-row gap-5 text-left text-[#6ca22d]" ref={dropdownRef}>
-        <div>afa</div>
+        
       <div>
         <div>{title}</div>
         <button
@@ -82,6 +86,8 @@ const Dropdown: React.FC<DropdownProps> = ({title, label, items, onSelect }) => 
         tabIndex={-1}
       >
         <div className="py-1" role="none">
+
+          <input type='string' className='mx-2 my-1.5 border-green-600 rounded-smtext-sm ' placeholder='enter your choice'/>
           {items.map((item) => (
             <button
               key={item.value}

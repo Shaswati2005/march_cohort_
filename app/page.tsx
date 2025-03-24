@@ -6,6 +6,7 @@ import Background from "./components/Background";
 import Dropdown from "./components/Dropdown";
 import Cards from "./components/Cards";
 import { useState } from "react";
+import Achievement from "./components/Achievement";
 
 export default function Home() {
   const [location, setLocation] = useState<string | null>(null);
@@ -52,10 +53,11 @@ export default function Home() {
         <div className="flex flex-col lg:flex-row  items-center gap-1 ">
           <div className="  w-60 h-20 hover:shadow-2xl hover:scale-105 shadow-[#6ca22d] p-3 transition-all  text-[#6ca22d] border border-[#6ba22d31]">
             <Dropdown
-              title="locations"
+              title="interest"
               label="locations"
               items={locations}
               onSelect={handleLocationSelect}
+              type="string"
             />
           </div>
           <div className="  w-60 h-20 hover:shadow-2xl hover:scale-105 shadow-[#6ca22d] p-3 transition-all  text-[#6ca22d] border border-[#6ba22d31]">
@@ -64,22 +66,25 @@ export default function Home() {
               label="locations"
               items={locations}
               onSelect={handleLocationSelect}
+              type="string"
             />
           </div>
           <div className="  w-60 h-20 hover:shadow-2xl hover:scale-105 shadow-[#6ca22d] p-3 transition-all  text-[#6ca22d] border border-[#6ba22d31]">
             <Dropdown
-              title="locations"
+              title="date"
               label="locations"
               items={locations}
               onSelect={handleLocationSelect}
+              type="Date"
             />
           </div>
           <div className="  w-60 h-20 hover:shadow-2xl hover:scale-105 shadow-[#6ca22d] p-3 transition-all  text-[#6ca22d] border border-[#6ba22d31]">
             <Dropdown
-              title="locations"
+              title="time"
               label="locations"
               items={locations}
               onSelect={handleLocationSelect}
+              type="time"
             />
           </div>
         </div>
@@ -96,12 +101,7 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="px-20 py-20 w-screen h-full  flex items-center justify-center">
-        <div className="px-5 py-2 rounded-lg bg-[#6ba22d27] text-[#5da110] w-50 text-center h-full">
-          popular activities
-        </div>
-      </div>
-
+      
 
       
        
@@ -162,8 +162,16 @@ export default function Home() {
       </div>
 
 
-      <div className="overflow-x-auto">
-      <div className="w-fit mx-5 lg:mx-10 mt-10 lg:mt-30 flex flex-row gap-15 ">
+      <div className="px-20 py-10 w-screen h-full  flex items-center justify-center mt-10 lg:mt-30 ">
+        <div className="px-5 py-2 rounded-lg bg-[#6ba22d27] text-[#5da110] w-50 text-center h-full">
+          popular activities
+        </div>
+      </div>
+
+
+
+      <div className="overflow-x-auto ">
+      <div className="w-fit mx-5 lg:mx-10 flex flex-row gap-15 mb-20 mt-5">
         <Cards title="eco tourism" description="lets plan you a holiday to kolkota" image="/bg1.jpg" link="/"/>
         <Cards title="eco tourism" description="lets plan you a holiday to kolkota" image="/bg1.jpg" link="/"/>
         <Cards title="eco tourism" description="lets plan you a holiday to kolkota" image="/bg1.jpg" link="/"/>
@@ -177,6 +185,26 @@ export default function Home() {
       </div>
 
       </div>
+
+
+      <div className="flex flex-col items-center justify-between" >
+        <div className="text-3xl font-extrabold text-black">Achievements</div>
+        <div className="w-full y-fit flex flex-col items-center overflow-x-auto ">
+        <div className="flex flex-row items-center  w-fit h-fit my-15 gap-15 ">
+          <Achievement num={2000} sign="+" image="/bg1.jpg" title="happy travelers"/>
+          <Achievement num={136} sign="+" image="/bg1.jpg" title="tours success"/>
+          <Achievement num={99} sign="%" image="/bg1.jpg" title="positive reviews"/>
+          <Achievement num={62} sign="+" image="/bg1.jpg" title="award winning"/>
+
+        </div>
+
+        </div>
+        
+
+      </div>
+
+
+
       
 
 
