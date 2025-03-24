@@ -21,16 +21,25 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
+  params,
 }: Readonly<{
   children: React.ReactNode;
+  params: { slug?: string | string[] };
 }>) {
+  const currentPath =
+    typeof params.slug === "string"
+      ? `/${params.slug}`
+      : Array.isArray(params.slug)
+      ? `/${params.slug.join("/")}`
+      : "/";
+  const hideNavbarOn = ["/sign-in", "/sign-up"];
   return (
     <ClerkProvider>
       <html lang="en">
         <body
           className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         >
-          <Navbar />
+          {!hideNavbarOn.includes(currentPath) && <Navbar />}
           {children}
         </body>
       </html>
