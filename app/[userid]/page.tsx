@@ -1,4 +1,5 @@
 "use client";
+import { useUser } from "@clerk/nextjs";
 import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
 
@@ -13,6 +14,7 @@ interface Itinerary {
 }
 
 const Page = () => {
+  const { user } = useUser();
   const [loading, setLoading] = useState(true);
   const [itineraries, setItineraries] = useState<Itinerary[]>([]);
   const params = useParams();
@@ -68,7 +70,9 @@ const Page = () => {
 
   return (
     <div className="p-6 w-dvw max-h-dvh  overflow-hidden flex flex-col justify-start mt-[5rem] items-center text-white">
-      <h1 className="text-2xl font-bold mb-4">User Itineraries</h1>
+      <h1 className="text-2xl font-bold mb-4">
+        {user?.firstName}s Itineraries
+      </h1>
 
       {itineraries.length === 0 ? (
         <h2>No itineraries found.</h2>

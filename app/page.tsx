@@ -1,8 +1,5 @@
 "use client";
 
-import Image from "next/image";
-import Navbar from "./components/Navbar";
-import Background from "./components/Background";
 import Dropdown from "./components/Dropdown";
 import Cards from "./components/Cards";
 import { useState } from "react";
@@ -10,9 +7,6 @@ import Achievement from "./components/Achievement";
 
 export default function Home() {
   const [location, setLocation] = useState<string | null>(null);
-  const [type, setType] = useState<string | null>(null);
-  const [guest, setGuest] = useState<number | null>(null); // Assuming guest is a number
-  const [dates, setDates] = useState<Date[] | null>(null);
 
   const handleLocationSelect = (selectedLocation: string) => {
     setLocation(selectedLocation);
@@ -44,7 +38,7 @@ export default function Home() {
               className="lg:text-2xl hover:cursor-pointer  lg:px text-lg text-white w-40 bg-[#6ca22d] lg:w-50 py-3 border-1 rounded-sm hover:bg-white hover:text-[#7bb471] hover:shadow-2xs shadow-[#8bc34a] hover:scale-105 transition-all "
             >
               Get Started
-            </button> 
+            </button>
           </div>
         </div>
       </div>
@@ -101,10 +95,6 @@ export default function Home() {
         </div>
       </div>
 
-      
-
-      
-       
       <div className="flex flex-col md:flex-row items-center justify-between pl-20 ">
         <div className="max-w-[800px] h-fit overflow-hidden relative border border-black">
           <img
@@ -119,48 +109,35 @@ export default function Home() {
               About Company
             </div>
 
-
             <div className="flex flex-row items-center p-3 rounded-xl gap-5 max-w-150 hover:bg-[#5da110] bg-white text-[#5da110] hover:text-white text-sm">
-              <div className="w-15 h-15 rounded-full bg-[#5da110]">
-
-              </div>
+              <div className="w-15 h-15 rounded-full bg-[#5da110]"></div>
               <div className="w-full h-fit text-wrap ">
-              has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type
-
+                has been the industry's standard dummy text ever since the
+                1500s, when an unknown printer took a galley of type and
+                scrambled it to make a type
               </div>
-
             </div>
 
-
             <div className="flex flex-row items-center p-3 rounded-xl gap-5 max-w-150 hover:bg-[#5da110] bg-white text-[#5da110] hover:text-white text-sm">
-              <div className="w-15 h-15 rounded-full bg-[#5da110]">
-
-              </div>
+              <div className="w-15 h-15 rounded-full bg-[#5da110]"></div>
               <div className="w-full h-fit text-wrap ">
-              has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type
-
+                has been the industry's standard dummy text ever since the
+                1500s, when an unknown printer took a galley of type and
+                scrambled it to make a type
               </div>
-
             </div>
 
-
             <div className="flex flex-row items-center p-3 rounded-xl gap-5 max-w-150 hover:bg-[#5da110] bg-white text-[#5da110] hover:text-white text-sm">
-              <div className="w-15 h-15 rounded-full bg-[#5da110]">
-
-              </div>
+              <div className="w-15 h-15 rounded-full bg-[#5da110]"></div>
               <div className="w-full h-fit text-wrap ">
-              has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type
-
+                has been the industry's standard dummy text ever since the
+                1500s, when an unknown printer took a galley of type and
+                scrambled it to make a type
               </div>
-
             </div>
-
-
-
           </div>
         </div>
       </div>
-
 
       <div className="px-20 py-10 w-screen h-full  flex items-center justify-center mt-10 lg:mt-30 ">
         <div className="px-5 py-2 rounded-lg bg-[#6ba22d27] text-[#5da110] w-50 text-center h-full">
@@ -168,49 +145,90 @@ export default function Home() {
         </div>
       </div>
 
-
-
       <div className="overflow-x-auto ">
-      <div className="w-fit mx-5 lg:mx-10 flex flex-row gap-15 mb-20 mt-5">
-        <Cards title="eco tourism" description="lets plan you a holiday to kolkota" image="/bg1.jpg" link="/"/>
-        <Cards title="eco tourism" description="lets plan you a holiday to kolkota" image="/bg1.jpg" link="/"/>
-        <Cards title="eco tourism" description="lets plan you a holiday to kolkota" image="/bg1.jpg" link="/"/>
-        <Cards title="eco tourism" description="lets plan you a holiday to kolkota" image="/bg1.jpg" link="/"/>
-        <Cards title="eco tourism" description="lets plan you a holiday to kolkota" image="/bg1.jpg" link="/"/>
-        <Cards title="eco tourism" description="lets plan you a holiday to kolkota" image="/bg1.jpg" link="/"/>
-        <Cards title="eco tourism" description="lets plan you a holiday to kolkota" image="/bg1.jpg" link="/"/>
-        <Cards title="eco tourism" description="lets plan you a holiday to kolkota" image="/bg1.jpg" link="/"/>
-
-
+        <div className="w-fit mx-5 lg:mx-10 flex flex-row gap-15 mb-20 mt-5">
+          <Cards
+            title="eco tourism"
+            description="lets plan you a holiday to kolkota"
+            image="/bg1.jpg"
+            link="/"
+          />
+          <Cards
+            title="eco tourism"
+            description="lets plan you a holiday to kolkota"
+            image="/bg1.jpg"
+            link="/"
+          />
+          <Cards
+            title="eco tourism"
+            description="lets plan you a holiday to kolkota"
+            image="/bg1.jpg"
+            link="/"
+          />
+          <Cards
+            title="eco tourism"
+            description="lets plan you a holiday to kolkota"
+            image="/bg1.jpg"
+            link="/"
+          />
+          <Cards
+            title="eco tourism"
+            description="lets plan you a holiday to kolkota"
+            image="/bg1.jpg"
+            link="/"
+          />
+          <Cards
+            title="eco tourism"
+            description="lets plan you a holiday to kolkota"
+            image="/bg1.jpg"
+            link="/"
+          />
+          <Cards
+            title="eco tourism"
+            description="lets plan you a holiday to kolkota"
+            image="/bg1.jpg"
+            link="/"
+          />
+          <Cards
+            title="eco tourism"
+            description="lets plan you a holiday to kolkota"
+            image="/bg1.jpg"
+            link="/"
+          />
+        </div>
       </div>
 
-      </div>
-
-
-      <div className="flex flex-col items-center justify-between" >
+      <div className="flex flex-col items-center justify-between">
         <div className="text-3xl font-extrabold text-black">Achievements</div>
         <div className="w-full y-fit flex flex-col items-center overflow-x-auto ">
-        <div className="flex flex-row items-center  w-fit h-fit my-15 gap-15 ">
-          <Achievement num={2000} sign="+" image="/bg1.jpg" title="happy travelers"/>
-          <Achievement num={136} sign="+" image="/bg1.jpg" title="tours success"/>
-          <Achievement num={99} sign="%" image="/bg1.jpg" title="positive reviews"/>
-          <Achievement num={62} sign="+" image="/bg1.jpg" title="award winning"/>
-
+          <div className="flex flex-row items-center  w-fit h-fit my-15 gap-15 ">
+            <Achievement
+              num={2000}
+              sign="+"
+              image="/bg1.jpg"
+              title="happy travelers"
+            />
+            <Achievement
+              num={136}
+              sign="+"
+              image="/bg1.jpg"
+              title="tours success"
+            />
+            <Achievement
+              num={99}
+              sign="%"
+              image="/bg1.jpg"
+              title="positive reviews"
+            />
+            <Achievement
+              num={62}
+              sign="+"
+              image="/bg1.jpg"
+              title="award winning"
+            />
+          </div>
         </div>
-
-        </div>
-        
-
       </div>
-
-
-
-      
-
-
-
-
-
     </div>
   );
 }
