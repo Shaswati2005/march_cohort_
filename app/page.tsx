@@ -170,7 +170,7 @@ export default function Home() {
             </div>
 
             <div className="flex flex-row items-center p-3 rounded-xl gap-5 max-w-150 hover:bg-[#5da110] bg-white text-[#5da110] hover:text-white text-sm">
-              <div className="w-15 h-15 rounded-full bg-[#5da110]"></div>
+              <div className="w-15 h-15 rounded-full bg-[#5da110] border border-white"></div>
               <div className="w-full h-fit text-wrap ">
                 has been the industry's standard dummy text ever since the
                 1500s, when an unknown printer took a galley of type and
@@ -179,7 +179,7 @@ export default function Home() {
             </div>
 
             <div className="flex flex-row items-center p-3 rounded-xl gap-5 max-w-150 hover:bg-[#5da110] bg-white text-[#5da110] hover:text-white text-sm">
-              <div className="w-15 h-15 rounded-full bg-[#5da110]"></div>
+              <div className="w-15 h-15 rounded-full bg-[#5da110] border border-white"></div>
               <div className="w-full h-fit text-wrap ">
                 has been the industry's standard dummy text ever since the
                 1500s, when an unknown printer took a galley of type and
@@ -188,7 +188,7 @@ export default function Home() {
             </div>
 
             <div className="flex flex-row items-center p-3 rounded-xl gap-5 max-w-150 hover:bg-[#5da110] bg-white text-[#5da110] hover:text-white text-sm">
-              <div className="w-15 h-15 rounded-full bg-[#5da110]"></div>
+              <div className="w-15 h-15 rounded-full bg-[#5da110] border border-white"></div>
               <div className="w-full h-fit text-wrap ">
                 has been the industry's standard dummy text ever since the
                 1500s, when an unknown printer took a galley of type and
