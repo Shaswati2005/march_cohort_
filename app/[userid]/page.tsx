@@ -62,14 +62,14 @@ const Page = () => {
 
   if (loading) {
     return (
-      <div className="text-center text-lg w-screen h-screen text-white flex justify-center items-center">
+      <div className="text-center text-lg w-screen h-screen text-[#7bb471] bg-white flex justify-center items-center">
         Loading...
       </div>
     );
   }
 
   return (
-    <div className="p-6 w-dvw max-h-dvh  overflow-hidden flex flex-col justify-start mt-[5rem] items-center text-white">
+    <div className="p-6 w-dvw max-h-dvh  overflow-hidden flex flex-col justify-start mt-[5rem] items-center text-[#4db23b] bg-white ">
       <h1 className="text-2xl font-bold mb-4">
         {user?.firstName}s Itineraries
       </h1>
