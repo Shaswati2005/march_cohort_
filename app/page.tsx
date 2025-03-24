@@ -4,6 +4,7 @@ import Image from "next/image";
 import Navbar from "./components/Navbar";
 import Background from "./components/Background";
 import Dropdown from "./components/Dropdown";
+import Cards from "./components/Cards";
 import { useState } from "react";
 
 export default function Home() {
@@ -101,6 +102,9 @@ export default function Home() {
         </div>
       </div>
 
+
+      
+       
       <div className="flex flex-col md:flex-row items-center justify-between pl-20 ">
         <div className="max-w-[800px] h-fit overflow-hidden relative border border-black">
           <img
@@ -156,6 +160,29 @@ export default function Home() {
           </div>
         </div>
       </div>
+
+
+      <div className="overflow-x-auto">
+      <div className="w-fit mx-5 lg:mx-10 mt-10 lg:mt-30 flex flex-row gap-15 ">
+        <Cards title="eco tourism" description="lets plan you a holiday to kolkota" image="/bg1.jpg" link="/"/>
+        <Cards title="eco tourism" description="lets plan you a holiday to kolkota" image="/bg1.jpg" link="/"/>
+        <Cards title="eco tourism" description="lets plan you a holiday to kolkota" image="/bg1.jpg" link="/"/>
+        <Cards title="eco tourism" description="lets plan you a holiday to kolkota" image="/bg1.jpg" link="/"/>
+        <Cards title="eco tourism" description="lets plan you a holiday to kolkota" image="/bg1.jpg" link="/"/>
+        <Cards title="eco tourism" description="lets plan you a holiday to kolkota" image="/bg1.jpg" link="/"/>
+        <Cards title="eco tourism" description="lets plan you a holiday to kolkota" image="/bg1.jpg" link="/"/>
+        <Cards title="eco tourism" description="lets plan you a holiday to kolkota" image="/bg1.jpg" link="/"/>
+
+
+      </div>
+
+      </div>
+      
+
+
+
+
+
     </div>
   );
 }
