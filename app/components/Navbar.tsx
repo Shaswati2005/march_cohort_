@@ -14,24 +14,24 @@ const Navbar = () => {
         <div className="flex flex-1 px-10 py-3 items-center gap-10 text-[#8bc34a]">
           <Link href={"/"} title="home">
             {" "}
-            home
+            Home
           </Link>
-          <button>about us</button>
-          <button>tours</button>
-          <button>destination</button>
+          <button>About us</button>
+          <button>Tours</button>
+          <button>Destination</button>
           <Link href={"/"} title="past ">
-            past tour
+            Past tours
           </Link>
           <Link href={"/"} title="updates">
-            updates
+            Updates
           </Link>
           <Link href={`${user?.id}`} title="current">
             {" "}
-            current
+            Upcoming Trips
           </Link>
         </div>
         {isSignedIn ? (
-          <UserButton />
+          <UserButton userProfileMode="modal" />
         ) : (
           <div className="bg-[#8bc34a] px-5 py-1 rounded-lg ">signin</div>
         )}
