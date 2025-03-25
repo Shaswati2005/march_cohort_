@@ -37,7 +37,7 @@ export default function RootLayout({
     <ClerkProvider>
       <html lang="en">
         <body
-          className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+          className={`${geistSans.variable} ${geistMono.variable} antialiased bg-white`}
         >
           {!hideNavbarOn.includes(currentPath) && <Navbar />}
           {children}

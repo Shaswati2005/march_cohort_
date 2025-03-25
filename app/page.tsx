@@ -145,12 +145,11 @@ export default function Home() {
         </button>
       </div>
 
-      
-      <div className="flex flex-col md:flex-row items-center justify-between pl-20 ">
+      <div className="flex flex-col bg-white md:flex-row items-center justify-between pl-20 ">
         <div className="max-w-[800px] h-fit overflow-hidden relative border border-black">
           <img
             src="/bg1.jpg"
-            className="transition-transform duration-10000 ease-linear transform-origin-center       In_10s_linear_infinite_alternate "
+            className="transition-transform duration-10000 ease-linear transform-origin-center In_10s_linear_infinite_alternate "
           />
         </div>
 
@@ -190,8 +189,8 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="px-20 py-10 w-screen h-full  flex items-center justify-center mt-10 lg:mt-30 ">
-        <div className="px-5 py-2 rounded-lg bg-[#6ba22d27] text-[#5da110] w-50 text-center h-full">
+      <div className="px-20 py-10 w-screen h-fit bg-white  flex items-center justify-center mt-10 lg:mt-30 ">
+        <div className="px-5 py-2 rounded-lg bg-[#6ba22d27] text-[#5da110] w-50 text-center h-fit ">
           popular activities
         </div>
       </div>
@@ -281,8 +280,7 @@ export default function Home() {
         </div>
       </div>
 
-
-      <Footer/>
+      <Footer />
     </div>
   );
 }

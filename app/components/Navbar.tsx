@@ -42,14 +42,19 @@ const Navbar = () => {
         {isSignedIn ? (
           <UserButton userProfileMode="modal" />
         ) : (
-          <div className="bg-[#8bc34a] px-5 py-1 rounded-lg">signin</div>
+          <Link
+            href={"/sign-in"}
+            className="bg-[#8bc34a] px-5 py-1 rounded-lg text-xl"
+          >
+            Sign In
+          </Link>
         )}
       </div>
 
       {isMenuOpen && (
         <div className="md:hidden bg-white bg-opacity-50 p-4">
           <div className="flex flex-col items-center gap-4 bg-[#7bc02e] text-white">
-          {isSignedIn ? (
+            {isSignedIn ? (
               <UserButton userProfileMode="modal" />
             ) : (
               <div className="bg-[#8bc34a] px-5 py-1 rounded-lg">signin</div>
@@ -69,7 +74,6 @@ const Navbar = () => {
             <Link href={`${user?.id}`} title="current">
               Upcoming Trips
             </Link>
-            
           </div>
         </div>
       )}
