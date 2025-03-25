@@ -69,8 +69,8 @@ const Page = () => {
       {itineraries.length === 0 ? (
         <h2>No itineraries found.</h2>
       ) : (
-        <div className=" overflow-x-scroll ">
-          <div className="w-fit mx-5 lg:mx-10 flex flex-row gap-15 mb-20 mt-5">
+        <div className="">
+          <div className="w-fit mx-5 lg:mx-10 flex flex-row flex-wrap justify-between  gap-15 mb-20 mt-5">
             {itineraries.map((itinerary) => (
               <Info
                 id={itinerary.id}
