@@ -7,6 +7,7 @@ import { useUser } from "@clerk/nextjs";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import axios from "axios";
+import Footer from "./components/Footer";
 
 export default function Home() {
   const router = useRouter();
@@ -144,17 +145,7 @@ export default function Home() {
         </button>
       </div>
 
-      <div className="px-20 py-20 w-screen h-full  flex items-start  justify-center gap-5">
-        <input
-          type="string"
-          placeholder="search locations"
-          className="px-5 py-2  bg-[#6ba22d27] text-[#5da110] w-100 rounded-full text-start h-full"
-        ></input>
-        <div className="hover:bg-[#599a0e] bg-white hover:text-white text-[#599a0e] w-fit h-fit content-center px-2 py-2 rounded-lg border-[#599a0e] ">
-          filter
-        </div>
-      </div>
-
+      
       <div className="flex flex-col md:flex-row items-center justify-between pl-20 ">
         <div className="max-w-[800px] h-fit overflow-hidden relative border border-black">
           <img
@@ -289,6 +280,9 @@ export default function Home() {
           </div>
         </div>
       </div>
+
+
+      <Footer/>
     </div>
   );
 }
