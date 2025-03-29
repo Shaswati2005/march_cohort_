@@ -27,28 +27,30 @@ const Info: React.FC<InfoProps> = ({
   const handleHoverFunction = () => {
     setopen(!open);
   };
-
-  function formatItinerary(itineraryString: string) {
+  function formatItinerary(itineraryString: string): string {
     const lines = itineraryString
-      .split("* ")
+      .replace(/\*\*/g, "") // Remove all **
+      .replace(/\*/g, "") // Remove all *
+      .split("\n")
       .map((line) => line.trim())
       .filter((line) => line);
+
     let formatted = "";
     let budgetStart = false;
 
     lines.forEach((line) => {
-      console.log(line);
-      formatted += `${line}\n`;
+      if (line.includes("Budget Breakdown")) {
+        budgetStart = true;
+        formatted += "<strong>Budget Breakdown:</strong><br>";
+      } else if (budgetStart) {
+        formatted += `- ${line.replace(/: /g, ": ₹")}<br>`;
+      } else if (line.startsWith("Day")) {
+        formatted += `<strong>${line}:</strong><br>`;
+      } else {
+        formatted += `&nbsp;&nbsp;* ${line}<br>`;
+      }
     });
-    const flines = formatted
-      .split("* ")
-      .map((line) => line.trim())
-      .filter((line) => line);
 
-    flines.forEach((line) => {
-      console.log(line);
-      formatted += `${line}\n`;
-    });
     return formatted;
   }
   if (loading) {
@@ -113,9 +115,9 @@ const Info: React.FC<InfoProps> = ({
               <div>{travel_time} Days</div>
             </div>
             {open && (
-              <p className="text-white text-sm ">
+              <div className="text-white text-sm ">
                 {formatItinerary(itinerary!)}
-              </p>
+              </div>
             )}
           </div>
         </div>
