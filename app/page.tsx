@@ -90,7 +90,7 @@ export default function Home() {
               <Link
                 href={`/${user?.id}`}
                 type="button"
-                className="lg:text-2xl hover:cursor-pointer   lg:px-3 text-lg text-white w-40 bg-[#6ca22d] lg:w-50 py-3 border-1 rounded-sm hover:bg-white hover:text-[#7bb471] hover:shadow-2xs shadow-[#8bc34a] hover:scale-105 transition-all "
+                className="lg:text-2xl hover:cursor-pointer   lg:px-3 text-lg text-white w-40 bg-[#c56c30f3] lg:w-50 py-3 border-1 rounded-sm hover:bg-white hover:text-[#c56c30d2] hover:shadow-2xs shadow-[#c56c3066] hover:scale-105 transition-all "
               >
                 Check out your trips
               </Link>
@@ -194,7 +194,7 @@ export default function Home() {
             </div>
 
             <div className="flex flex-row items-center p-3 rounded-xl gap-5 max-w-150 hover:bg-[#c56c3066] bg-white text-bg-[#c38f4a] hover:text-white text-sm">
-              <div className="w-15 h-12 rounded-[100%] bg-[#c38f4a65]   border border-white"></div>
+              <div className="w-15 h-15 rounded-[100%] bg-[#c38f4a65]   border border-white"></div>
               <div className="w-full h-fit text-wrap ">
                 has been the industry's standard dummy text ever since the
                 1500s, when an unknown printer took a galley of type and
@@ -203,7 +203,7 @@ export default function Home() {
             </div>
 
             <div className="flex flex-row items-center p-3 rounded-xl gap-5 max-w-150 hover:bg-[#c56c3066] bg-white text-bg-[#c38f4a] hover:text-white text-sm">
-              <div className="w-15 h-15 rounded-full bg-[#c38f4a65]   border border-white"></div>
+              <div className="w-15 h-15 rounded-[100%] bg-[#c38f4a65]   border border-white"></div>
               <div className="w-full h-fit text-wrap ">
                 has been the industry's standard dummy text ever since the
                 1500s, when an unknown printer took a galley of type and
@@ -212,7 +212,7 @@ export default function Home() {
             </div>
 
             <div className="flex flex-row items-center p-3 rounded-xl gap-5 max-w-150 hover:bg-[#c56c3066] bg-white textbg-[#c38f4a] hover:text-white text-sm">
-              <div className="w-15 h-15 rounded-full bg-[#c38f4a65]   border border-white"></div>
+              <div className="w-15 h-15 rounded-[100%] bg-[#c38f4a65]   border border-white"></div>
               <div className="w-full h-fit text-wrap ">
                 has been the industry's standard dummy text ever since the
                 1500s, when an unknown printer took a galley of type and
@@ -289,25 +289,25 @@ export default function Home() {
             <Achievement
               num={2000}
               sign="+"
-              image="/bg1.jpg"
+              image="/traveller.svg"
               title="happy travelers"
             />
             <Achievement
               num={136}
               sign="+"
-              image="/bg1.jpg"
+              image="/tour.svg"
               title="tours success"
             />
             <Achievement
               num={99}
               sign="%"
-              image="/bg1.jpg"
+              image="/reviews.svg"
               title="positive reviews"
             />
             <Achievement
               num={62}
               sign="+"
-              image="/bg1.jpg"
+              image="/awards.svg"
               title="award winning"
             />
           </div>
