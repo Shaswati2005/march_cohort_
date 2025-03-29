@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Image from "next/image";
 import { useState } from "react";
 
@@ -22,6 +22,7 @@ const Info: React.FC<InfoProps> = ({
   itinerary,
 }) => {
   const [open, setopen] = useState(false);
+  const [image, setImage] = useState("/bg1.jpg");
   const handleHoverFunction = () => {
     setopen(!open);
   };
@@ -36,6 +37,22 @@ const Info: React.FC<InfoProps> = ({
         <li key={index}>{line.replace(/^\* /, "")}</li> // Remove '*' from start
       ));
   };
+
+  async function fetchImages(query: string) {
+    const res = await fetch(
+      `/api/locationImage?query=${encodeURIComponent(query)}`
+    );
+    const data = await res.json();
+    console.log(data);
+    if (data.photos[0].src.large == null) {
+      setImage("/bg1.jpg");
+    }
+    setImage(data.photos[0].src.large);
+  }
+
+  useEffect(() => {
+    fetchImages(city);
+  }, []);
 
   const handleMouseOut = () => {
     setopen(!open);
@@ -52,9 +69,10 @@ const Info: React.FC<InfoProps> = ({
       <div className="relative w-85 h-100 overflow-hidden rounded-3xl bg-[#5da110]  ">
         <div className="absolute inset-0  duration-1000">
           <Image
-            src={"/bg1.jpg"}
+            src={image}
             alt="Card Background"
             layout="fill"
+            sizes="large"
             objectFit="cover"
             className="relative hover:h-0 transition-all"
           />
