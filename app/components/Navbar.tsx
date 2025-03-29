@@ -12,31 +12,39 @@ const Navbar = () => {
   };
 
   return (
-    <div className="fixed top-0 left-0 w-screen z-30">
-      <div className="flex md:hidden flex-row items-center justify-between px-4 py-2 bg-white bg-opacity-50">
+    <div className="fixed top-0 left-0 w-screen z-30 lg:text-xl font-bold font-stretch-normal">
+      <div className="flex lg:hidden flex-row items-center justify-between px-4 py-2 bg-[#ffffff43] bg-opacity-50">
         <div>logo</div>
-        <button onClick={toggleMenu} className="text-[#c38f4a]">
+        <button onClick={toggleMenu} className="text-[#ffffff]">
           {isMenuOpen ? "Close" : "Menu"}
         </button>
       </div>
 
-      <div className="hidden md:flex flex-row items-center justify-between px-10 py-1 lg:h-20 bg-white bg-opacity-50">
+      <div className="hidden lg:flex flex-row items-center justify-between px-10 py-1 lg:h-20 bg-opacity-50">
         <div>logo</div>
-        <div className="flex flex-1 px-10 py-3 items-center gap-10 text-[#c38f4a] ">
-          <Link href={"/"} title="home">
+        <div className="flex flex-1 w-full px-10 py-3 items-center gap-10 text-[#ffffff]">
+          <Link href={"/"} title="home " className="relative group  hover:scale-110 transition-all duration-300">
             Home
+            <div className="absolute bottom-0 left-0 w-0 h-1 bg-[#c38f4a] transition-all duration-300 ease-in-out group-hover:w-full "></div>
           </Link>
-          <button>About us</button>
-          <button>Tours</button>
-          <button>Destination</button>
-          <Link href={"/"} title="past ">
+          <button className="relative group  hover:scale-110 transition-all duration-300">About us
+          <div className="absolute bottom-0 left-0 w-0 h-1 bg-[#c38f4a] transition-all duration-300 ease-in-out group-hover:w-full"></div>
+          </button>
+          
+          <button className="relative group  hover:scale-110 transition-all duration-300">Destination
+          <div className="absolute bottom-0 left-0 w-0 h-1 bg-[#c38f4a] transition-all duration-300 ease-in-out group-hover:w-full"></div>
+          </button>
+          <Link href={"/"} title="past " className="relative group  hover:scale-110 transition-all duration-300">
             Past tours
+            <div className="absolute bottom-0 left-0 w-0 h-1 bg-[#c38f4a] transition-all duration-300 ease-in-out group-hover:w-full"></div>
           </Link>
-          <Link href={"/"} title="updates">
+          <Link href={"/"} title="updates" className="relative group  hover:scale-110 transition-all duration-300">
             Updates
+            <div className="absolute bottom-0 left-0 w-0 h-1 bg-[#c38f4a] transition-all duration-300 ease-in-out group-hover:w-full"></div>
           </Link>
-          <Link href={`${user?.id}`} title="current">
+          <Link href={`${user?.id}`} title="current" className="relative group  hover:scale-110 transition-all duration-300">
             Upcoming Trips
+            <div className="absolute bottom-0 left-0 w-0 h-1 bg-[#c38f4a] transition-all duration-300 ease-in-out group-hover:w-full"></div>
           </Link>
         </div>
         {isSignedIn ? (
@@ -52,26 +60,25 @@ const Navbar = () => {
       </div>
 
       {isMenuOpen && (
-        <div className="md:hidden bg-white bg-opacity-50 p-4">
-          <div className="flex flex-col items-center gap-4 bg-orange-400 text-white">
+        <div className="lg:hidden  bg-opacity-50 p-4">
+          <div className="flex flex-col absolute right-2 items-center gap-4 p-4 max-w-[400px] w-full bg-[#c38f4a] text-white">
             {isSignedIn ? (
               <UserButton userProfileMode="modal" />
             ) : (
-              <div className="bg-orange-400 px-5 py-1 rounded-lg">signin</div>
+              <Link href={'/app/(auth)/sign-in'} className="bg-[#c38f4a] px-5 py-1 rounded-lg hover:bg-[#c38f4a9a]">signin</Link>
             )}
-            <Link href={"/"} title="home">
+            <Link href={"/"} title="home" className="hover:bg-[#c3704a4c] w-full h-fit text-center">
               Home
             </Link>
-            <button>About us</button>
-            <button>Tours</button>
-            <button>Destination</button>
-            <Link href={"/"} title="past ">
+            <button  className="hover:bg-[#c3704a4c] w-full h-fit text-center">About us</button>
+            <button  className="hover:bg-[#c3704a4c] w-full h-fit text-center">Destination</button>
+            <Link href={"/"} title="past "  className="hover:bg-[#c3704a4c] w-full h-fit text-center">
               Past tours
             </Link>
-            <Link href={"/"} title="updates">
+            <Link href={"/"} title="updates "  className="hover:bg-[#c3704a4c] w-full h-fit text-center">
               Updates
             </Link>
-            <Link href={`${user?.id}`} title="current">
+            <Link href={`${user?.id}`} title="current"  className="hover:bg-[#c3704a4c] w-full h-fit text-center">
               Upcoming Trips
             </Link>
           </div>

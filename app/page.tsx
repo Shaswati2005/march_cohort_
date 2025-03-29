@@ -86,17 +86,21 @@ export default function Home() {
 
   return (
     <div className="w-screen  h-full font-sans bg-white flex-col items-center justify-center">
-      <div className="w-screen h-full bg1 ">
-        <div className="pt-30 flex flex-col   gap-10 items-center lg:items-start justify-end  lg:p-30 p-20">
-          <div className=" flex-col gap-10">
-            <h1 className="font-extrabold  text-5xl lg:text-9xl text-white ephesis-regular">
+      <div className="w-screen h-screen relative">
+        <div className="absolute inset-0 duration-1000 ">
+          <video src="/tour22.mp4" loop={true} autoPlay={true} muted={true} className="absolute inset-0 w-full h-full object-cover"/>
+
+        </div >
+        <div className="pt-30 flex flex-col absolute bottom-0   gap-10 items-center lg:items-start justify-end  lg:p-30 p-20">
+          <div className=" flex flex-col gap-10 mt-16 ">
+            <h1 className="font-extrabold  text-5xl lg:text-9xl text-white ephesis-regular transition-transform duration-500 ease-out translate-y-10 hover:translate-y-0">
               Travelsiders
             </h1>
-            <h2 className="lg:pl-[30%] pl-[5%] poppins-thin tgowild font-stretch-ultra-expanded   lg:text-3xl flex items-end justify-end">
+            <h2 className="lg:pl-[30%] pl-[5%] poppins-thin tgowild font-stretch-ultra-expanded   lg:text-3xl flex items-end justify-end transition-transform duration-500 ease-out translate-y-10 hover:translate-y-0">
               Lets personalise your travels
             </h2>
           </div>
-          <div className="lg:px-45 lg:py-20 ">
+          <div className="lg:px-45 py-7 ">
             {isSignedIn ? (
               <Link
                 href={`/${user?.id}`}
@@ -120,7 +124,8 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="h-full absolute  text-sm lg:text-xl  w-screen  py-10 lg:py-20 flex flex-col items-center justify-center bg-white text-black z-10">
+      <div className="h-screen relative  text-sm lg:text-xl  w-screen  py-10 lg:py-20 flex flex-col items-center justify-center bg-white text-black z-10">
+        <div className="absolute inset-0 duration-300 ">
         <Image
           src={"/wmp.png"}
           alt="wmp"
@@ -128,8 +133,11 @@ export default function Home() {
           objectFit="cover"
           className="relative opacity-15 h-fit -z-10"
         />
+
+        </div>
+        
         <div className="flex absolute top-15 lg:top-60 flex-col items-center gap-1 ">
-          <div className="flex flex-col md:flex-row items-center gap-1">
+          <div className="flex flex-col lg:flex-row items-center gap-1">
             <div className="grid lg:grid-rows-1 lg:grid-cols-5 grid-cols-2 gap-4 p-4">
               <div className="   w-20 h-15 lg:w-50 xl:w-60 lg:h-20 hover:shadow-2xl hover:scale-105 shadow-[#c38f4a] p-3 transition-all flex flex-col items-center justify-center outline-[#c38f4a]  text-[#c38f4a] border border[#c38f4a]">
                 <input
@@ -186,22 +194,24 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="flex flex-col mt-100 lg:mt-200 xl:mt-250 xl:flex-row items-center gap-20  ">
-        <div className="max-w-[800px] h-fit overflow-hidden relative  lg:px-10">
-          <img
-            src="/bg1.jpg"
-            className="transition-transform border lg:rounded-tr-4xl lg:rounded-bl-4xl duration-10000 ease-linear transform-origin-center      In_10s_linear_infinite_alternate "
-          />
-        </div>
+      <div className="flex flex-col w-screen h-screen max-h-[800] xl:flex-row items-center gap-20 relative ">
+       <div className="absolute inset-0 duration-300 bg-[#080000d4]">
+        <Image src={"/background1.jpg"} alt="bg" objectFit="cover" layout="fill" className="relative peer-focus-visible: opacity-20"/>
 
-        <div className="m-5 h-full flex flex-col items-center justify-items-start text-[#c56b30] text-sm lg:text-2xl ">
-          <div className=" w-full h-full gap-5 flex flex-col items-center  justify-items-start">
-            <div className="md:px-5 py-2 rounded-lg bg-[#c38f4a65] text-2xl  w-50 lg:w-80 text-center h-full">
+       </div>
+
+        <div className=" absolute center z-10 m-2 h-fit flex flex-col  lg:flex-row items-center justify-items-start text-[#c56b30] text-lg lg:text-2xl gap-10">
+         
+            <div className="md:px-5 py-2 rounded-lg  text-4xl lg:text-6xl xl:text-9xl w-fit max-w-200 text-wrap text-left h-fit">
               About Company
             </div>
 
-            <div className="flex flex-row items-center p-3 rounded-xl gap-5 max-w-150 hover:bg-[#c56c3066] bg-white text-bg-[#c38f4a] hover:text-white text-sm lg:text-xl">
-              <div className="w-15 h-15 rounded-[100%] bg-[#c38f4a65]   border border-white"></div>
+            <div className="px-10 flex flex-row items-center justify-center lg:items-start lg:justify-start gap-10 overflow-x-auto">
+            
+            
+            <div className="flex flex-col items-center p-3 rounded-xl gap-5 max-w-150 h-100 hover:bg-[#231b1566]     text-white  bg-[#38230816] border  border-[#ffffff41] hover:text-white text-sm lg:text-xl">
+
+              <div className="w-30 h-30 hover:animate-bounce rounded-[100%] bg-[#c38f4a65]   border border-white"></div>
               <div className="w-full h-fit text-wrap ">
                 has been the industry's standard dummy text ever since the
                 1500s, when an unknown printer took a galley of type and
@@ -209,8 +219,10 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="flex flex-row items-center p-3 rounded-xl gap-5 max-w-150 hover:bg-[#c56c3066] bg-white text-bg-[#c38f4a] hover:text-white text-sm lg:text-xl">
-              <div className="w-15 h-15 rounded-[100%] bg-[#c38f4a65]   border border-white"></div>
+
+            <div className="flex flex-col items-center p-3 rounded-xl gap-5 max-w-150 h-100 hover:bg-[#231b1566]     text-white  bg-[#38230816] border  border-[#ffffff41] hover:text-white text-sm lg:text-xl">
+
+              <div className="w-30 h-30 hover:animate-bounce rounded-[100%] bg-[#c38f4a65]   border border-white"></div>
               <div className="w-full h-fit text-wrap ">
                 has been the industry's standard dummy text ever since the
                 1500s, when an unknown printer took a galley of type and
@@ -218,16 +230,15 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="flex flex-row items-center p-3 rounded-xl gap-5 max-w-150 hover:bg-[#c56c3066] bg-white textbg-[#c38f4a] hover:text-white text-sm lg:text-xl">
-              <div className="w-15 h-15 rounded-[100%] bg-[#c38f4a65]   border border-white"></div>
-              <div className="w-full h-fit text-wrap ">
-                has been the industry's standard dummy text ever since the
-                1500s, when an unknown printer took a galley of type and
-                scrambled it to make a type
-              </div>
+
+            
+
+            
             </div>
+
+            
           </div>
-        </div>
+  
       </div>
 
       <div className="px-20 py-10 w-screen h-full  flex items-center justify-center mt-10 lg:mt-30 ">
