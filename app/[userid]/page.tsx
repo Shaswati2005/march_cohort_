@@ -19,6 +19,7 @@ const Page = () => {
   const [loading, setLoading] = useState(true);
   const [itineraries, setItineraries] = useState<Itinerary[]>([]);
   const params = useParams();
+  const [open,setopen] = useState(false);
 
   const userId = params.userid ? String(params.userid) : "";
   useEffect(() => {
@@ -60,7 +61,8 @@ const Page = () => {
   }
 
   return (
-    <div className="p-6 w-dvw h-dvh  overflow-y-auto flex flex-col justify-start mt-[5rem] items-center text-[#c56b30] bg-white ">
+    <button >
+      <div className="p-6 w-dvw h-dvh  overflow-y-auto flex flex-col justify-start mt-[5rem] items-center text-[#c56b30] bg-white ">
       <h1 className="text-2xl font-bold mb-4">
         {user?.firstName}s Itineraries
       </h1>
@@ -86,6 +88,9 @@ const Page = () => {
         </div>
       )}
     </div>
+
+    </button>
+    
   );
 };
 
