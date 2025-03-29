@@ -72,6 +72,7 @@ const Info: React.FC<InfoProps> = ({
             src={image}
             alt="Card Background"
             layout="fill"
+            sizes="large"
             objectFit="cover"
             className="relative hover:h-0 transition-all"
           />
