@@ -27,9 +27,11 @@ body {
 }
 
 .bg1 {
-  background: url("/bg11.png") scroll;
+  background: url("/background1.jpg") scroll;
   background-position: center;
   background-size: cover;
+  fill:cover;
+
 }
 
 .gowild {
@@ -182,3 +184,24 @@ body {
 }
 
 
+.lightyellow{
+  color:#fdc566;
+
+}
+
+.yellow{
+  color:#fd921e;
+}
+
+.orangedark{
+  color:#fd5d3d;
+
+}
+
+.orange{
+  color:#ed6333;
+}
+
+.pink{
+  color:#ff8e9e;
+}

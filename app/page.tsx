@@ -100,7 +100,7 @@ export default function Home() {
                   router.push("/sign-in");
                 }}
                 type="button"
-                className="lg:text-2xl hover:cursor-pointer  lg:px text-lg text-white w-40 bg-[#6ca22d] lg:w-50 py-3 border-1 rounded-sm hover:bg-white hover:text-[#7bb471] hover:shadow-2xs shadow-[#8bc34a] hover:scale-105 transition-all "
+                className="lg:text-2xl hover:cursor-pointer  lg:px text-lg text-white w-40 bg-[#c56b30] lg:w-50 py-3 border-1 rounded-sm hover:bg-white hover:text-[#c3604a] hover:shadow-2xs shadow-[#c38f4a] hover:scale-105 transition-all "
               >
                 Get Started
               </button>
@@ -109,55 +109,69 @@ export default function Home() {
         </div>
       </div>
 
-      <div  className="h-full absolute  w-screen  py-10 md:py-20 flex flex-col items-center justify-center bg-white text-black z-10">
+      <div  className="h-full absolute  text-sm lg:text-xl  w-screen  py-10 lg:py-20 flex flex-col items-center justify-center bg-white text-black z-10">
         <Image
         src={'/wmp.png'}
         alt="wmp"
         layout="fill"
         objectFit="cover"
-        className="relative opacity-15"
+        className="relative opacity-15 h-fit -z-10"
         />
-        <div className="flex absolute top-60 flex-col items-center gap-1 ">
+        <div className="flex absolute top-15 lg:top-60 flex-col items-center gap-1 ">
           <div className="flex flex-col md:flex-row items-center gap-1">
-          <div className="  w-60 h-20 hover:shadow-2xl hover:scale-105 shadow-[#6ca22d] p-3 transition-all flex flex-col items-center justify-center outline-green-300  text-[#6ca22d] border border-[#6ba22d31]">
+
+            <div className="grid lg:grid-rows-1 lg:grid-cols-5 grid-cols-2 gap-4 p-4">
+            <div className="   w-20 h-15 lg:w-50 xl:w-60 lg:h-20 hover:shadow-2xl hover:scale-105 shadow-[#c38f4a] p-3 transition-all flex flex-col items-center justify-center outline-[#c38f4a]  text-[#c38f4a] border border[#c38f4a]">
             <input
               type="text"
               placeholder="Destination"
-              className="outline-none w-full text-2xl"
+              className="outline-none w-full "
               onChange={handleDestinationChange}
             ></input>
           </div>
-          <div className="  w-60 h-20 hover:shadow-2xl hover:scale-105 shadow-[#6ca22d] p-3 transition-all flex flex-col items-center justify-center text-[#6ca22d] border border-[#6ba22d31]">
+          <div className="     w-20 h-15 lg:w-50 xl:w-60 lg:h-20 hover:shadow-2xl hover:scale-105 shadow-[#c38f4a] p-3 transition-all flex flex-col items-center justify-center text-[#c38f4a] border border[#c38f4a]">
             <input
               type="date"
               placeholder="Date"
-              className="outline-none w-full text-2xl"
+              className="outline-none w-full "
               onChange={handleDateChange}
             ></input>
           </div>
-          <div className="  w-60 h-20 hover:shadow-2xl hover:scale-105 shadow-[#6ca22d] p-3 transition-all flex flex-col items-center justify-center text-[#6ca22d] border border-[#6ba22d31]">
+          <div className="    w-20 h-15 lg:w-50 xl:w-60 lg:h-20 hover:shadow-2xl hover:scale-105 shadow-[#c38f4a] p-3 transition-all flex flex-col items-center justify-center text-[#c38f4a] border border[#c38f4a]">
             <input
               type="text"
               placeholder="Travel Interests"
-              className="outline-none w-full text-2xl"
+              className="outline-none w-full "
               onChange={handleInterestChange}
             ></input>
           </div>
-          <div className="  w-60 h-20 hover:shadow-2xl hover:scale-105 shadow-[#6ca22d] p-3 transition-all flex flex-col items-center justify-center text-[#6ca22d] border border-[#6ba22d31]">
+          <div className="    w-20 h-15 lg:w-50 xl:w-60 lg:h-20 hover:shadow-2xl hover:scale-105 shadow-[#c38f4a] p-3 transition-all flex flex-col items-center justify-center text-[#c38f4a] border border[#c38f4a]">
             <input
-              type="text"
-              placeholder="Travel Time"
-              className="outline-none w-full text-2xl"
+              type="number"
+              placeholder="Travel Days"
+              className="outline-none w-full "
               onChange={handleTimeChange}
-            ></input>
+                          ></input>
           </div>
+
+          <div className="    w-20 h-15 lg:w-50 xl:w-60 lg:h-20 hover:shadow-2xl hover:scale-105 shadow-[#c38f4a] p-3 transition-all flex flex-col items-center justify-center text-[#c38f4a] border border[#c38f4a]">
+            <input
+              type="number"
+              placeholder="Budget"
+              className="outline-none w-full "
+              onChange={handleTimeChange}
+                          ></input>
+          </div>
+
+            </div>
+          
 
           </div>
           <button
           onClick={handleSubmit}
-          className="  w-50 h-20 m-4 hover:shadow-2xl hover:scale-105 shadow-[#6ca22d] p-3 transition-all z-8 flex flex-col items-center justify-center text-[#6ca22d] border border-[#6ba22d31]"
+          className="     w-20 h-15 lg:w-60  xl:w-70 lg:h-20 hover:shadow-2xl hover:scale-105 bg-[#c38f4a] hover:bg-white shadow-[#c38f4a] p-3 transition-all z-8 flex flex-col items-center justify-center text-white  hover:text-[#c38f4a] border border-[#c38f4a]"
         >
-          Find Your Perfect Plan
+         Your Perfect Plan
         </button>
           
         </div>
@@ -165,22 +179,22 @@ export default function Home() {
       </div>
 
       
-      <div className="flex flex-col md:flex-row items-center justify-between pl-20 ">
-        <div className="max-w-[800px] h-fit overflow-hidden relative border border-black">
+      <div className="flex flex-col mt-100 lg:mt-180 xl:mt-250 xl:flex-row items-center gap-20  ">
+        <div className="max-w-[800px] h-fit overflow-hidden relative  lg:px-10">
           <img
             src="/bg1.jpg"
-            className="transition-transform duration-10000 ease-linear transform-origin-center      In_10s_linear_infinite_alternate "
+            className="transition-transform border lg:rounded-tr-4xl lg:rounded-bl-4xl duration-10000 ease-linear transform-origin-center      In_10s_linear_infinite_alternate "
           />
         </div>
 
-        <div className="m-5 h-full flex flex-col items-center justify-items-start ">
+        <div className="m-5 h-full flex flex-col items-center justify-items-start text-[#c56b30] text-sm lg:text-2xl ">
           <div className=" w-full h-full gap-5 flex flex-col items-center  justify-items-start">
-            <div className="md:px-5 py-2 rounded-lg bg-[#6ba22d27] text-[#5da110] w-50 text-center h-full">
+            <div className="md:px-5 py-2 rounded-lg bg-[#c38f4a65]  w-50 lg:w-80 text-center h-full">
               About Company
             </div>
 
-            <div className="flex flex-row items-center p-3 rounded-xl gap-5 max-w-150 hover:bg-[#5da110] bg-white text-[#5da110] hover:text-white text-sm">
-              <div className="w-15 h-15 rounded-full bg-[#5da110] border border-white"></div>
+            <div className="flex flex-row items-center p-3 rounded-xl gap-5 max-w-150 hover:bg-[#5da110] bg-white text-bg-[#c38f4a] hover:text-white text-sm">
+              <div className="w-15 h-15 rounded-full bg-[#c38f4a65]   border border-white"></div>
               <div className="w-full h-fit text-wrap ">
                 has been the industry's standard dummy text ever since the
                 1500s, when an unknown printer took a galley of type and
@@ -188,8 +202,8 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="flex flex-row items-center p-3 rounded-xl gap-5 max-w-150 hover:bg-[#5da110] bg-white text-[#5da110] hover:text-white text-sm">
-              <div className="w-15 h-15 rounded-full bg-[#5da110] border border-white"></div>
+            <div className="flex flex-row items-center p-3 rounded-xl gap-5 max-w-150 hover:bg-[#5da110] bg-white text-bg-[#c38f4a] hover:text-white text-sm">
+              <div className="w-15 h-15 rounded-full bg-[#c38f4a65]   border border-white"></div>
               <div className="w-full h-fit text-wrap ">
                 has been the industry's standard dummy text ever since the
                 1500s, when an unknown printer took a galley of type and
@@ -197,8 +211,8 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="flex flex-row items-center p-3 rounded-xl gap-5 max-w-150 hover:bg-[#5da110] bg-white text-[#5da110] hover:text-white text-sm">
-              <div className="w-15 h-15 rounded-full bg-[#5da110] border border-white"></div>
+            <div className="flex flex-row items-center p-3 rounded-xl gap-5 max-w-150 hover:bg-[#5da110] bg-white textbg-[#c38f4a] hover:text-white text-sm">
+              <div className="w-15 h-15 rounded-full bg-[#c38f4a65]   border border-white"></div>
               <div className="w-full h-fit text-wrap ">
                 has been the industry's standard dummy text ever since the
                 1500s, when an unknown printer took a galley of type and
@@ -210,7 +224,7 @@ export default function Home() {
       </div>
 
       <div className="px-20 py-10 w-screen h-full  flex items-center justify-center mt-10 lg:mt-30 ">
-        <div className="px-5 py-2 rounded-lg bg-[#6ba22d27] text-[#5da110] w-50 text-center h-full">
+        <div className="px-5 py-2 rounded-lg bg-[#c38f4a65]   text-[#c38f4a]   w-50 text-center h-full">
           popular activities
         </div>
       </div>
