@@ -23,6 +23,7 @@ const Info: React.FC<InfoProps> = ({
 }) => {
   const [open, setopen] = useState(false);
   const [image, setImage] = useState("/bg1.jpg");
+  const [loading, setLoading] = useState(false);
   const handleHoverFunction = () => {
     setopen(!open);
   };
@@ -37,17 +38,26 @@ const Info: React.FC<InfoProps> = ({
         <li key={index}>{line.replace(/^\* /, "")}</li> // Remove '*' from start
       ));
   };
-
-  async function fetchImages(query: string) {
-    const res = await fetch(
-      `/api/locationImage?query=${encodeURIComponent(query)}`
+  if (loading) {
+    return (
+      <div className="relative w-85 h-100 overflow-hidden rounded-3xl bg-[#575757]"></div>
     );
-    const data = await res.json();
-    console.log(data);
-    if (data.photos[0].src.large == null) {
-      setImage("/bg1.jpg");
+  }
+  async function fetchImages(query: string) {
+    try {
+      setLoading(true);
+      const res = await fetch(
+        `/api/locationImage?query=${encodeURIComponent(query)}`
+      );
+      const data = await res.json();
+      console.log(data);
+      if (data.photos[0].src.large == null) {
+        setImage("/bg1.jpg");
+      }
+      setImage(data.photos[0].src.large);
+    } finally {
+      setLoading(false);
     }
-    setImage(data.photos[0].src.large);
   }
 
   useEffect(() => {

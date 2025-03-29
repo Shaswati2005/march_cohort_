@@ -1,7 +1,7 @@
 "use client";
 
 import Cards from "./components/Cards";
-import { ChangeEvent, useState ,useRef,useEffect} from "react";
+import { ChangeEvent, useState, useRef, useEffect } from "react";
 import Achievement from "./components/Achievement";
 import { useUser } from "@clerk/nextjs";
 import Link from "next/link";
@@ -11,18 +11,14 @@ import Footer from "./components/Footer";
 import Image from "next/image";
 
 export default function Home() {
-
-  
-
-
-
-
   const router = useRouter();
   const [location, setLocation] = useState<string | null>(null);
   const [date, setDate] = useState<string | null>(null);
 
   const [time, setTime] = useState<string | null>(null);
   const [interests, setInterests] = useState<string | null>(null);
+  const [budget, setBudget] = useState<string | null>("5000");
+  const [food, setFood] = useState("Veg");
 
   const { user, isSignedIn } = useUser();
   const handleLocationSelect = (selectedLocation: string) => {
@@ -50,7 +46,11 @@ export default function Home() {
   }
 
   function handleTimeChange(event: ChangeEvent<HTMLInputElement>): void {
-    setTime(`${event.target.value}:00:00`);
+    setTime(event.target.value);
+  }
+
+  function handleBudgetChange(event: ChangeEvent<HTMLInputElement>): void {
+    setBudget(event.target.value);
   }
 
   async function handleSubmit() {
@@ -62,7 +62,9 @@ export default function Home() {
           city: location,
           interests: interests,
           travel_date: date,
-          travel_time: time,
+          travel_duration: time,
+          avg_budget: budget,
+          food_prefference: food,
         }
       );
       console.log(response);
@@ -74,7 +76,7 @@ export default function Home() {
   }
 
   return (
-    <div   className="w-screen  h-full font-sans bg-white flex-col items-center justify-center">
+    <div className="w-screen  h-full font-sans bg-white flex-col items-center justify-center">
       <div className="w-screen h-full bg1 ">
         <div className="pt-30 flex flex-col   gap-10 items-center lg:items-start justify-end  lg:p-30 p-20">
           <div className=" flex-col gap-10">
@@ -109,76 +111,69 @@ export default function Home() {
         </div>
       </div>
 
-      <div  className="h-full absolute  text-sm lg:text-xl  w-screen  py-10 lg:py-20 flex flex-col items-center justify-center bg-white text-black z-10">
+      <div className="h-full absolute  text-sm lg:text-xl  w-screen  py-10 lg:py-20 flex flex-col items-center justify-center bg-white text-black z-10">
         <Image
-        src={'/wmp.png'}
-        alt="wmp"
-        layout="fill"
-        objectFit="cover"
-        className="relative opacity-15 h-fit -z-10"
+          src={"/wmp.png"}
+          alt="wmp"
+          layout="fill"
+          objectFit="cover"
+          className="relative opacity-15 h-fit -z-10"
         />
         <div className="flex absolute top-15 lg:top-60 flex-col items-center gap-1 ">
           <div className="flex flex-col md:flex-row items-center gap-1">
-
             <div className="grid lg:grid-rows-1 lg:grid-cols-5 grid-cols-2 gap-4 p-4">
-            <div className="   w-20 h-15 lg:w-50 xl:w-60 lg:h-20 hover:shadow-2xl hover:scale-105 shadow-[#c38f4a] p-3 transition-all flex flex-col items-center justify-center outline-[#c38f4a]  text-[#c38f4a] border border[#c38f4a]">
-            <input
-              type="text"
-              placeholder="Destination"
-              className="outline-none w-full "
-              onChange={handleDestinationChange}
-            ></input>
-          </div>
-          <div className="     w-20 h-15 lg:w-50 xl:w-60 lg:h-20 hover:shadow-2xl hover:scale-105 shadow-[#c38f4a] p-3 transition-all flex flex-col items-center justify-center text-[#c38f4a] border border[#c38f4a]">
-            <input
-              type="date"
-              placeholder="Date"
-              className="outline-none w-full "
-              onChange={handleDateChange}
-            ></input>
-          </div>
-          <div className="    w-20 h-15 lg:w-50 xl:w-60 lg:h-20 hover:shadow-2xl hover:scale-105 shadow-[#c38f4a] p-3 transition-all flex flex-col items-center justify-center text-[#c38f4a] border border[#c38f4a]">
-            <input
-              type="text"
-              placeholder="Travel Interests"
-              className="outline-none w-full "
-              onChange={handleInterestChange}
-            ></input>
-          </div>
-          <div className="    w-20 h-15 lg:w-50 xl:w-60 lg:h-20 hover:shadow-2xl hover:scale-105 shadow-[#c38f4a] p-3 transition-all flex flex-col items-center justify-center text-[#c38f4a] border border[#c38f4a]">
-            <input
-              type="number"
-              placeholder="Travel Days"
-              className="outline-none w-full "
-              onChange={handleTimeChange}
-                          ></input>
-          </div>
+              <div className="   w-20 h-15 lg:w-50 xl:w-60 lg:h-20 hover:shadow-2xl hover:scale-105 shadow-[#c38f4a] p-3 transition-all flex flex-col items-center justify-center outline-[#c38f4a]  text-[#c38f4a] border border[#c38f4a]">
+                <input
+                  type="text"
+                  placeholder="Destination"
+                  className="outline-none w-full "
+                  onChange={handleDestinationChange}
+                ></input>
+              </div>
+              <div className="     w-20 h-15 lg:w-50 xl:w-60 lg:h-20 hover:shadow-2xl hover:scale-105 shadow-[#c38f4a] p-3 transition-all flex flex-col items-center justify-center text-[#c38f4a] border border[#c38f4a]">
+                <input
+                  type="date"
+                  placeholder="Date"
+                  className="outline-none w-full "
+                  onChange={handleDateChange}
+                ></input>
+              </div>
+              <div className="    w-20 h-15 lg:w-50 xl:w-60 lg:h-20 hover:shadow-2xl hover:scale-105 shadow-[#c38f4a] p-3 transition-all flex flex-col items-center justify-center text-[#c38f4a] border border[#c38f4a]">
+                <input
+                  type="text"
+                  placeholder="Travel Interests"
+                  className="outline-none w-full "
+                  onChange={handleInterestChange}
+                ></input>
+              </div>
+              <div className="    w-20 h-15 lg:w-50 xl:w-60 lg:h-20 hover:shadow-2xl hover:scale-105 shadow-[#c38f4a] p-3 transition-all flex flex-col items-center justify-center text-[#c38f4a] border border[#c38f4a]">
+                <input
+                  type="number"
+                  placeholder="Travel Days"
+                  className="outline-none w-full "
+                  onChange={handleTimeChange}
+                ></input>
+              </div>
 
-          <div className="    w-20 h-15 lg:w-50 xl:w-60 lg:h-20 hover:shadow-2xl hover:scale-105 shadow-[#c38f4a] p-3 transition-all flex flex-col items-center justify-center text-[#c38f4a] border border[#c38f4a]">
-            <input
-              type="number"
-              placeholder="Budget"
-              className="outline-none w-full "
-              onChange={handleTimeChange}
-                          ></input>
-          </div>
-
+              <div className="    w-20 h-15 lg:w-50 xl:w-60 lg:h-20 hover:shadow-2xl hover:scale-105 shadow-[#c38f4a] p-3 transition-all flex flex-col items-center justify-center text-[#c38f4a] border border[#c38f4a]">
+                <input
+                  type="number"
+                  placeholder="Budget"
+                  className="outline-none w-full "
+                  onChange={handleBudgetChange}
+                ></input>
+              </div>
             </div>
-          
-
           </div>
           <button
-          onClick={handleSubmit}
-          className="     w-20 h-15 lg:w-60  xl:w-70 lg:h-20 hover:shadow-2xl hover:scale-105 bg-[#c38f4a] hover:bg-white shadow-[#c38f4a] p-3 transition-all z-8 flex flex-col items-center justify-center text-white  hover:text-[#c38f4a] border border-[#c38f4a]"
-        >
-         Your Perfect Plan
-        </button>
-          
+            onClick={handleSubmit}
+            className="     w-20 h-15 lg:w-60  xl:w-70 lg:h-20 hover:shadow-2xl hover:scale-105 bg-[#c38f4a] hover:bg-white shadow-[#c38f4a] p-3 transition-all z-8 flex flex-col items-center justify-center text-white  hover:text-[#c38f4a] border border-[#c38f4a]"
+          >
+            Your Perfect Plan
+          </button>
         </div>
-        
       </div>
 
-      
       <div className="flex flex-col mt-100 lg:mt-200 xl:mt-250 xl:flex-row items-center gap-20  ">
         <div className="max-w-[800px] h-fit overflow-hidden relative  lg:px-10">
           <img
@@ -314,8 +309,7 @@ export default function Home() {
         </div>
       </div>
 
-
-      <Footer/>
+      <Footer />
     </div>
   );
 }
