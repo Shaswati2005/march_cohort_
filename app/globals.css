@@ -30,8 +30,7 @@ body {
   background: url("/background1.jpg") scroll;
   background-position: center;
   background-size: cover;
-  fill:cover;
-
+  fill: cover;
 }
 
 .gowild {
@@ -183,25 +182,63 @@ body {
   font-style: italic;
 }
 
-
-.lightyellow{
-  color:#fdc566;
-
+.lightyellow {
+  color: #fdc566;
 }
 
-.yellow{
-  color:#fd921e;
+.yellow {
+  color: #fd921e;
 }
 
-.orangedark{
-  color:#fd5d3d;
-
+.orangedark {
+  color: #fd5d3d;
 }
 
-.orange{
-  color:#ed6333;
+.orange {
+  color: #ed6333;
 }
 
-.pink{
-  color:#ff8e9e;
+.pink {
+  color: #ff8e9e;
 }
+
+::-webkit-scrollbar {
+  visibility: hidden;
+  width: 0px;
+}
+
+/* Apply scrollbar styles to the whole page */
+html {
+  scrollbar-width: thin; /* For Firefox */
+  scrollbar-color: rgb(255, 150, 44) #1e1e1e;
+  scroll-behavior: smooth; /* Thumb and track color */
+}
+
+/* For Webkit browsers (Chrome, Edge, Safari) */
+::-webkit-scrollbar {
+  width: 8px; /* Thin scrollbar */
+}
+
+::-webkit-scrollbar-track {
+  background: #1e1e1e; /* Dark track */
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    180deg,
+    rgb(255, 150, 44),
+    rgb(91, 46, 1)
+  ); /* Sleek gradient */
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(
+    180deg,
+    rgb(255, 150, 44),
+    rgb(143, 72, 1)
+  ); /* Slightly brighter on hover */
+}
+
+

@@ -92,20 +92,12 @@ const Info: React.FC<InfoProps> = ({
         <div
           className={`absolute bottom-0 p-4 overflow-y-auto rounded-t-3xl ${
             open
-              ? `w-85 h-100 transition-all bg-[#5da110] text-white `
-              : `w-85 h-45 bg-white text-[#5da110]`
+              ? `w-85 h-100 transition-all bg-[#00000070] text-white `
+              : `w-85 h-45 bg-[#00000011] text-white font-bold`
           }`}
         >
-          <div
-            className={`flex flex-col  ${
-              open ? `text-white` : `text-[#5da110]`
-            } items-center gap-4`}
-          >
-            <div
-              className={`text-2xl ${open ? `text-white` : `text-[#5da110]`} `}
-            >
-              {city}
-            </div>
+          <div className={`flex flex-col  text-white items-center gap-4`}>
+            <div className={`text-2xl text-white `}>{city}</div>
             <div className="text-lg">{interests}</div>
             <div className=" w-full h-fit flex flex-row px-2 items-center justify-between text-sm">
               <div>Start Date : {travel_date}</div>

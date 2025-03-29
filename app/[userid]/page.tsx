@@ -53,14 +53,14 @@ const Page = () => {
 
   if (loading) {
     return (
-      <div className="text-center text-lg w-screen h-screen text-[#7bb471] bg-white flex justify-center items-center">
+      <div className="text-center text-lg w-screen h-screen text-orange-500 bg-white flex justify-center items-center">
         Loading...
       </div>
     );
   }
 
   return (
-    <div className="p-6 w-dvw h-dvh  overflow-y-auto flex flex-col justify-start mt-[5rem] items-center text-[#4db23b] bg-white ">
+    <div className="p-6 w-dvw h-dvh  overflow-y-auto flex flex-col justify-start mt-[5rem] items-center text-orange-400 bg-white  ">
       <h1 className="text-2xl font-bold mb-4">
         {user?.firstName}s Itineraries
       </h1>
@@ -69,7 +69,7 @@ const Page = () => {
         <h2>No itineraries found.</h2>
       ) : (
         <div className="">
-          <div className="w-fit mx-5 lg:mx-10 flex flex-row flex-wrap justify-between  gap-15 mb-20 mt-5">
+          <div className="w-full mx-5 lg:mx-10 flex flex-row flex-wrap justify-between overflow-x-hidden gap-15 mb-20 mt-5">
             {itineraries.map((itinerary) => (
               <Info
                 key={itinerary.id}
