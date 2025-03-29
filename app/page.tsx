@@ -158,6 +158,7 @@ export default function Home() {
               <div className="    w-20 h-15 lg:w-50 xl:w-60 lg:h-20 hover:shadow-2xl hover:scale-105 shadow-[#c38f4a] p-3 transition-all flex flex-col items-center justify-center text-[#c38f4a] border border[#c38f4a]">
                 <input
                   type="number"
+                  min={2}
                   placeholder="Travel Days"
                   className="outline-none w-full "
                   onChange={handleTimeChange}
@@ -168,6 +169,8 @@ export default function Home() {
                 <input
                   type="number"
                   placeholder="Budget"
+                  
+                  min={5000}
                   className="outline-none w-full "
                   onChange={handleBudgetChange}
                 ></input>

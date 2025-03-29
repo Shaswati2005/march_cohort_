@@ -1,7 +1,7 @@
 "use client";
 import { useUser } from "@clerk/nextjs";
 import { useParams } from "next/navigation";
-import { useEffect, useState } from "react";
+import { JSX, useEffect, useState } from "react";
 import Info from "../components/Info";
 import Image from "next/image";
 import { Itim } from "next/font/google";
@@ -16,6 +16,61 @@ interface Itinerary {
 }
 
 const Page = () => {
+  function formatItinerary(itineraryString: string): JSX.Element[] {
+      const lines = itineraryString
+        .replaceAll("+", "")
+        .replaceAll("*", "")
+        .replaceAll("-","")
+        .replaceAll(":","")
+        // .replace(/\*\*/g, "") // Remove all **
+        // .replace(/\*/g, "") // Remove all *
+        .split("\n")
+        .map((line) => line.trim())
+        .filter((line) => line);
+  
+      let formatted: JSX.Element[] = [];
+      let budgetStart = false;
+  
+      lines.forEach((line, index) => {
+        if (line.includes("Budget Breakdown")) {
+          budgetStart = true;
+          formatted.push(
+            <ul className="w-full px-2 text-left mt-5 text-xl font-medium font-sans mb-2" key={index}>
+              Budget Breakdown:
+            </ul>
+          );
+        }
+        else if(line.includes("Food")){
+          formatted.push(
+            <ul className="w-full px-2 text-left mt-5 text-xl font-medium font-sans mb-2 " key={index}>
+              Food:
+            </ul>
+          )
+        }
+        else if(line.startsWith("Day")){
+          formatted.push(
+            <ul className="w-full px-2 text-center mt-5 text-xl font-medium font-sans mb-2 bg-[#00000074]" key={index}>
+              {line}
+            </ul>
+          )
+        }
+         else if (budgetStart) {
+          formatted.push(
+            <li key={index} className="w-full px-2 text-left ">
+              - {line.replace(/: /g, ": ₹")}
+            </li>
+          );
+        }  else {
+          formatted.push(
+            <li key={index} className="w-full px-2 text-left  ">
+              &nbsp;&nbsp;• {line}
+            </li>
+          );
+        }
+      });
+  
+      return formatted;
+    }
  
   const { user } = useUser();
   const [loading, setLoading] = useState(true);
@@ -105,7 +160,18 @@ id,user,city,interests,travelDate,travelTime,itinerary
 
   return (
    
-        <div className="p-6 w-dvw h-dvh  overflow-y-auto flex flex-col justify-start mt-[5rem] items-center text-[#c56b30] bg-white relative  shadow-inner">
+        <div className="p-6 w-screen h-screen overflow-y-auto flex flex-col justify-start mt-[5rem] items-center text-[#c56b30] bg-gradient-to-tl  from-[#c38f4a4a] to-[#ffffff] relative  shadow-inner ">
+          <div className="absolute inset-0 duration-1000 ">
+            <Image
+                        src={"/background1.jpg"}
+                        alt="Card Background"
+                        layout="fill"
+                        sizes="large"
+                        objectFit="cover"
+                        className="relative hover:h-0 transition-all brightness-50"
+                        
+                      />
+          </div>
        
        <h1 className={`${open?`hidden`:``}text-2xl font-bold mb-4 `}>
        {user?.firstName}s Itineraries
@@ -118,7 +184,7 @@ id,user,city,interests,travelDate,travelTime,itinerary
      ) : (
       
        <div >
-        <button className={`${open? `w-screen h-full  lg:w-[800px] lg:h-[800px] flex flex-col items-center   overflow-hidden relative border rounded-2xl `:`hidden`}`} onClick={()=>(setopen(!open))}>
+        <button className={`${open? `w-screen h-screen  lg:w-[1200px] lg:h-[800px] flex flex-col items-center   overflow-auto relative border rounded-2xl `:`hidden`}`} onClick={()=>(setopen(!open))}>
           
           <div className="absolute inset-0  duration-1000">
                     <Image
@@ -130,10 +196,12 @@ id,user,city,interests,travelDate,travelTime,itinerary
                       className="relative hover:h-0 transition-all"
                     />
                   </div>
-          <div className="absolute top-10 w-full px-10 py-5 flex flex-row items-center justify-items-start  overflow-y-auto text-white">
-            <h1>{city}</h1>
-            <span><h2>{travelDate}</h2><h2>{travelTime}</h2></span>
-
+          <div className="h-full absolute  bg-[#0000004a] w-full px-10 py-5 flex flex-col  items-center justify-start overflow-y-scroll text-white">
+            <h1 className="text-4xl font-semibold font-serif my-2">Destination - {city}</h1>
+            <hr className="w-3/4 bg-gray-500 my-5"></hr>
+            <span className="flex justify-center items-center gap-4  w-full px-4"><h2>Starting Date - {travelDate}</h2><h2>{travelTime} Days</h2></span>
+            <div>{interests}</div>
+            <ul>{formatItinerary(itinerary)}</ul>
           </div>
 
 

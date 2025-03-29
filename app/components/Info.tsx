@@ -32,6 +32,8 @@ const Info: React.FC<InfoProps> = ({
     const lines = itineraryString
       .replaceAll("+", "")
       .replaceAll("*", "")
+      .replaceAll("-","")
+      .replaceAll(":","")
       // .replace(/\*\*/g, "") // Remove all **
       // .replace(/\*/g, "") // Remove all *
       .split("\n")
@@ -45,27 +47,35 @@ const Info: React.FC<InfoProps> = ({
       if (line.includes("Budget Breakdown")) {
         budgetStart = true;
         formatted.push(
-          <strong className="w-full px-2 text-left" key={index}>
+          <ul className="w-full px-2 text-left" key={index}>
             Budget Breakdown:
-          </strong>
+          </ul>
         );
-      } else if (budgetStart) {
+      }
+      else if(line.includes("Food")){
         formatted.push(
-          <div key={index} className="w-full px-2 text-left">
+          <ul className="w-full px-2 text-left" key={index}>
+            Food:
+          </ul>
+        )
+      }
+       else if (budgetStart) {
+        formatted.push(
+          <li key={index} className="w-full px-2 text-left">
             - {line.replace(/: /g, ": ₹")}
-          </div>
+          </li>
         );
       } else if (line.startsWith("Day")) {
         formatted.push(
-          <strong key={index} className="w-full px-2  text-left">
+          <li key={index} className="w-full px-2  text-left">
             {line}:
-          </strong>
+          </li>
         );
       } else {
         formatted.push(
-          <div key={index} className="w-full px-2 text-left">
+          <ul key={index} className="w-full px-2 text-left">
             &nbsp;&nbsp;• {line}
-          </div>
+          </ul>
         );
       }
     });
@@ -128,7 +138,7 @@ const Info: React.FC<InfoProps> = ({
               : `w-85 h-45 bg-[#00000011] text-white font-bold`
           }`}
         >
-          <div className={`flex flex-col  text-white items-center gap-4`}>
+          <div className={`flex flex-col  text-white items-start px-3 gap-4`}>
             <div className={`text-2xl text-white `}>{city}</div>
             <div className="text-lg">{interests}</div>
             <div className=" w-full h-fit flex flex-row px-2 items-center justify-between text-sm">
