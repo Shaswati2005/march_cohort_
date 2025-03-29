@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { JSX, useEffect } from "react";
 import Image from "next/image";
 import { useState } from "react";
 
@@ -27,32 +27,51 @@ const Info: React.FC<InfoProps> = ({
   const handleHoverFunction = () => {
     setopen(!open);
   };
-  function formatItinerary(itineraryString: string): string {
+  function formatItinerary(itineraryString: string): JSX.Element[] {
     const lines = itineraryString
-      .replace(/\*\*/g, "") // Remove all **
-      .replace(/\*/g, "") // Remove all *
+      .replaceAll("+", "")
+      .replaceAll("*", "")
+      // .replace(/\*\*/g, "") // Remove all **
+      // .replace(/\*/g, "") // Remove all *
       .split("\n")
       .map((line) => line.trim())
       .filter((line) => line);
 
-    let formatted = "";
+    let formatted: JSX.Element[] = [];
     let budgetStart = false;
 
-    lines.forEach((line) => {
+    lines.forEach((line, index) => {
       if (line.includes("Budget Breakdown")) {
         budgetStart = true;
-        formatted += "<strong>Budget Breakdown:</strong><br>";
+        formatted.push(
+          <strong className="w-full px-2 text-left" key={index}>
+            Budget Breakdown:
+          </strong>
+        );
       } else if (budgetStart) {
-        formatted += `- ${line.replace(/: /g, ": ₹")}<br>`;
+        formatted.push(
+          <div key={index} className="w-full px-2 text-left">
+            - {line.replace(/: /g, ": ₹")}
+          </div>
+        );
       } else if (line.startsWith("Day")) {
-        formatted += `<strong>${line}:</strong><br>`;
+        formatted.push(
+          <strong key={index} className="w-full px-2  text-left">
+            {line}:
+          </strong>
+        );
       } else {
-        formatted += `&nbsp;&nbsp;* ${line}<br>`;
+        formatted.push(
+          <div key={index} className="w-full px-2 text-left">
+            &nbsp;&nbsp;• {line}
+          </div>
+        );
       }
     });
 
     return formatted;
   }
+
   if (loading) {
   }
   async function fetchImages(query: string) {
@@ -73,6 +92,7 @@ const Info: React.FC<InfoProps> = ({
   }
 
   useEffect(() => {
+    console.log(itinerary);
     fetchImages(city);
   }, []);
 
@@ -115,7 +135,7 @@ const Info: React.FC<InfoProps> = ({
               <div>{travel_time} Days</div>
             </div>
             {open && (
-              <div className="text-white text-sm ">
+              <div className="text-white text-sm w-full h-fit">
                 {formatItinerary(itinerary!)}
               </div>
             )}
