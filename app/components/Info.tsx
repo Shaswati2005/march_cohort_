@@ -28,20 +28,21 @@ const Info: React.FC<InfoProps> = ({
     setopen(!open);
   };
 
-  const formatItinerary = (text: string | null | undefined) => {
-    if (!text) return <p>No itinerary available</p>; // Handle null case gracefully
+  function formatItinerary(itineraryString: string) {
+    const lines = itineraryString
+      .split("* ")
+      .map((line) => line.trim())
+      .filter((line) => line);
+    let formatted = "";
+    let budgetStart = false;
 
-    return text
-      .split("\n")
-      .filter((line) => line.startsWith("*")) // Only keep bullet points
-      .map((line, index) => (
-        <li key={index}>{line.replace(/^\* /, "")}</li> // Remove '*' from start
-      ));
-  };
+    lines.forEach((line) => {
+      formatted += `${line}\n`;
+    });
+
+    return formatted;
+  }
   if (loading) {
-    return (
-      <div className="relative w-85 h-100 overflow-hidden rounded-3xl bg-[#575757]"></div>
-    );
   }
   async function fetchImages(query: string) {
     try {
@@ -107,12 +108,12 @@ const Info: React.FC<InfoProps> = ({
             </div>
             <div className="text-lg">{interests}</div>
             <div className=" w-full h-fit flex flex-row px-2 items-center justify-between text-sm">
-              <div>{travel_date}</div>
-              <div>{travel_time}</div>
+              <div>Start Date : {travel_date}</div>
+              <div>{travel_time} Days</div>
             </div>
             {open && (
               <div className="text-white text-sm ">
-                {formatItinerary(itinerary)}
+                {formatItinerary(itinerary!)}
               </div>
             )}
           </div>

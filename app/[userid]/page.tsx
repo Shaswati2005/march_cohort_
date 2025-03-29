@@ -10,7 +10,7 @@ interface Itinerary {
   city: string;
   interests: string;
   travel_date: string;
-  travel_time: string;
+  travel_duration: string;
   itinerary: string;
 }
 
@@ -29,6 +29,7 @@ const Page = () => {
 
     const fetchItineraries = async () => {
       try {
+        setLoading(true);
         const response = await fetch(
           `https://new-ucyk.onrender.com/get_itinerary_by_user/?user_id=${userId}`
         );
@@ -77,7 +78,7 @@ const Page = () => {
                 city={itinerary.city}
                 interests={itinerary.interests}
                 travel_date={itinerary.travel_date}
-                travel_time={itinerary.travel_time}
+                travel_time={itinerary.travel_duration}
                 itinerary={itinerary.itinerary}
               />
             ))}
