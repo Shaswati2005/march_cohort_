@@ -34,9 +34,7 @@ const Page = () => {
         );
 
         if (!response.ok) {
-          throw new Error(
-            `Failed to fetch itineraries, Status: ${response.status}`
-          );
+          return <h1>Could'nt fetch iterinaries</h1>;
         }
         const data = await response.json();
         console.log(data);
@@ -73,6 +71,7 @@ const Page = () => {
           <div className="w-fit mx-5 lg:mx-10 flex flex-row flex-wrap justify-between  gap-15 mb-20 mt-5">
             {itineraries.map((itinerary) => (
               <Info
+                key={itinerary.id}
                 id={itinerary.id}
                 user={itinerary.user}
                 city={itinerary.city}
