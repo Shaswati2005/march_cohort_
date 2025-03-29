@@ -11,6 +11,15 @@ import Footer from "./components/Footer";
 import Image from "next/image";
 
 export default function Home() {
+
+  const tourism = [
+    ["Eco Tourism", "Lets enjoy the nature", "/background1.jpg"],
+    ["Nature Tourism", "Lets enjoy the nature", "/background1.jpg"],
+    ["Cultural Tourism", "Lets take you through vibrant cultures", "/background1.jpg"],
+    ["Wild life Tourism", "go on a trip with advanture and thrill", "/background1.jpg"],
+    ["Religious Tourism", "Take some time to enjoy the peace", "/background1.jpg"],
+   
+  ]
   const router = useRouter();
   const [location, setLocation] = useState<string | null>(null);
   const [date, setDate] = useState<string | null>(null);
@@ -184,11 +193,11 @@ export default function Home() {
 
         <div className="m-5 h-full flex flex-col items-center justify-items-start text-[#c56b30] text-sm lg:text-2xl ">
           <div className=" w-full h-full gap-5 flex flex-col items-center  justify-items-start">
-            <div className="md:px-5 py-2 rounded-lg bg-[#c38f4a65]  w-50 lg:w-80 text-center h-full">
+            <div className="md:px-5 py-2 rounded-lg bg-[#c38f4a65] text-2xl  w-50 lg:w-80 text-center h-full">
               About Company
             </div>
 
-            <div className="flex flex-row items-center p-3 rounded-xl gap-5 max-w-150 hover:bg-[#c56c3066] bg-white text-bg-[#c38f4a] hover:text-white text-sm">
+            <div className="flex flex-row items-center p-3 rounded-xl gap-5 max-w-150 hover:bg-[#c56c3066] bg-white text-bg-[#c38f4a] hover:text-white text-sm lg:text-xl">
               <div className="w-15 h-15 rounded-[100%] bg-[#c38f4a65]   border border-white"></div>
               <div className="w-full h-fit text-wrap ">
                 has been the industry's standard dummy text ever since the
@@ -197,7 +206,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="flex flex-row items-center p-3 rounded-xl gap-5 max-w-150 hover:bg-[#c56c3066] bg-white text-bg-[#c38f4a] hover:text-white text-sm">
+            <div className="flex flex-row items-center p-3 rounded-xl gap-5 max-w-150 hover:bg-[#c56c3066] bg-white text-bg-[#c38f4a] hover:text-white text-sm lg:text-xl">
               <div className="w-15 h-15 rounded-[100%] bg-[#c38f4a65]   border border-white"></div>
               <div className="w-full h-fit text-wrap ">
                 has been the industry's standard dummy text ever since the
@@ -206,7 +215,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="flex flex-row items-center p-3 rounded-xl gap-5 max-w-150 hover:bg-[#c56c3066] bg-white textbg-[#c38f4a] hover:text-white text-sm">
+            <div className="flex flex-row items-center p-3 rounded-xl gap-5 max-w-150 hover:bg-[#c56c3066] bg-white textbg-[#c38f4a] hover:text-white text-sm lg:text-xl">
               <div className="w-15 h-15 rounded-[100%] bg-[#c38f4a65]   border border-white"></div>
               <div className="w-full h-fit text-wrap ">
                 has been the industry's standard dummy text ever since the
@@ -219,7 +228,7 @@ export default function Home() {
       </div>
 
       <div className="px-20 py-10 w-screen h-full  flex items-center justify-center mt-10 lg:mt-30 ">
-        <div className="px-5 py-2 rounded-lg bg-[#c38f4a65]   text-[#c38f4a]   w-50 text-center h-full">
+        <div className="px-5 py-2 rounded-lg lg:text-3xl font-extrabold bg-[#c38f4a65]   text-[#c38f4a]   w-fit text-center h-full">
           popular activities
         </div>
       </div>
@@ -229,51 +238,13 @@ export default function Home() {
           <Cards
             title="eco tourism"
             description="lets plan you a holiday to kolkota"
-            image="/bg1.jpg"
+            image="/background1.jpg"
             link="/"
           />
-          <Cards
-            title="eco tourism"
-            description="lets plan you a holiday to kolkota"
-            image="/bg1.jpg"
-            link="/"
-          />
-          <Cards
-            title="eco tourism"
-            description="lets plan you a holiday to kolkota"
-            image="/bg1.jpg"
-            link="/"
-          />
-          <Cards
-            title="eco tourism"
-            description="lets plan you a holiday to kolkota"
-            image="/bg1.jpg"
-            link="/"
-          />
-          <Cards
-            title="eco tourism"
-            description="lets plan you a holiday to kolkota"
-            image="/bg1.jpg"
-            link="/"
-          />
-          <Cards
-            title="eco tourism"
-            description="lets plan you a holiday to kolkota"
-            image="/bg1.jpg"
-            link="/"
-          />
-          <Cards
-            title="eco tourism"
-            description="lets plan you a holiday to kolkota"
-            image="/bg1.jpg"
-            link="/"
-          />
-          <Cards
-            title="eco tourism"
-            description="lets plan you a holiday to kolkota"
-            image="/bg1.jpg"
-            link="/"
-          />
+          {tourism.map((item)=>(
+            <Cards key={item[0]} title={item[0]} description={item[1]} image={item[2]}/>
+
+          ))}
         </div>
       </div>
 
