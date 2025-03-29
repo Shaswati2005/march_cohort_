@@ -21,6 +21,7 @@ const Info: React.FC<InfoProps> = ({
   travel_time,
   itinerary,
 }) => {
+  
   const [open, setopen] = useState(false);
   const [image, setImage] = useState("/bg1.jpg");
   const [loading, setLoading] = useState(false);
