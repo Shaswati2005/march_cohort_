@@ -1,15 +1,22 @@
 "use client";
 
 import Cards from "./components/Cards";
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, useState ,useRef,useEffect} from "react";
 import Achievement from "./components/Achievement";
 import { useUser } from "@clerk/nextjs";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import axios from "axios";
 import Footer from "./components/Footer";
+import Image from "next/image";
 
 export default function Home() {
+
+  
+
+
+
+
   const router = useRouter();
   const [location, setLocation] = useState<string | null>(null);
   const [date, setDate] = useState<string | null>(null);
@@ -67,7 +74,7 @@ export default function Home() {
   }
 
   return (
-    <div className="w-screen h-screen font-sans bg-white flex-col items-center justify-center">
+    <div   className="w-screen  h-full font-sans bg-white flex-col items-center justify-center">
       <div className="w-screen h-full bg1 ">
         <div className="pt-30 flex flex-col   gap-10 items-center lg:items-start justify-end  lg:p-30 p-20">
           <div className=" flex-col gap-10">
@@ -102,8 +109,16 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="h-full w-screen  py-10 md:py-20 flex flex-col items-center justify-center bg-white text-black z-10">
-        <div className="flex flex-col lg:flex-row  items-center gap-1 ">
+      <div  className="h-full absolute  w-screen  py-10 md:py-20 flex flex-col items-center justify-center bg-white text-black z-10">
+        <Image
+        src={'/wmp.png'}
+        alt="wmp"
+        layout="fill"
+        objectFit="cover"
+        className="relative opacity-15"
+        />
+        <div className="flex absolute top-60 flex-col items-center gap-1 ">
+          <div className="flex flex-col md:flex-row items-center gap-1">
           <div className="  w-60 h-20 hover:shadow-2xl hover:scale-105 shadow-[#6ca22d] p-3 transition-all flex flex-col items-center justify-center outline-green-300  text-[#6ca22d] border border-[#6ba22d31]">
             <input
               type="text"
@@ -136,20 +151,25 @@ export default function Home() {
               onChange={handleTimeChange}
             ></input>
           </div>
-        </div>
-        <button
+
+          </div>
+          <button
           onClick={handleSubmit}
-          className="  w-50 h-20 m-4 hover:shadow-2xl hover:scale-105 shadow-[#6ca22d] p-3 transition-all  flex flex-col items-center justify-center text-[#6ca22d] border border-[#6ba22d31]"
+          className="  w-50 h-20 m-4 hover:shadow-2xl hover:scale-105 shadow-[#6ca22d] p-3 transition-all z-8 flex flex-col items-center justify-center text-[#6ca22d] border border-[#6ba22d31]"
         >
           Find Your Perfect Plan
         </button>
+          
+        </div>
+        
       </div>
 
-      <div className="flex flex-col bg-white md:flex-row items-center justify-between pl-20 ">
+      
+      <div className="flex flex-col md:flex-row items-center justify-between pl-20 ">
         <div className="max-w-[800px] h-fit overflow-hidden relative border border-black">
           <img
             src="/bg1.jpg"
-            className="transition-transform duration-10000 ease-linear transform-origin-center In_10s_linear_infinite_alternate "
+            className="transition-transform duration-10000 ease-linear transform-origin-center      In_10s_linear_infinite_alternate "
           />
         </div>
 
@@ -189,8 +209,8 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="px-20 py-10 w-screen h-fit bg-white  flex items-center justify-center mt-10 lg:mt-30 ">
-        <div className="px-5 py-2 rounded-lg bg-[#6ba22d27] text-[#5da110] w-50 text-center h-fit ">
+      <div className="px-20 py-10 w-screen h-full  flex items-center justify-center mt-10 lg:mt-30 ">
+        <div className="px-5 py-2 rounded-lg bg-[#6ba22d27] text-[#5da110] w-50 text-center h-full">
           popular activities
         </div>
       </div>
@@ -280,7 +300,8 @@ export default function Home() {
         </div>
       </div>
 
-      <Footer />
+
+      <Footer/>
     </div>
   );
 }
