@@ -37,9 +37,18 @@ const Info: React.FC<InfoProps> = ({
     let budgetStart = false;
 
     lines.forEach((line) => {
+      console.log(line);
       formatted += `${line}\n`;
     });
+    const flines = formatted
+      .split("* ")
+      .map((line) => line.trim())
+      .filter((line) => line);
 
+    flines.forEach((line) => {
+      console.log(line);
+      formatted += `${line}\n`;
+    });
     return formatted;
   }
   if (loading) {
@@ -104,9 +113,9 @@ const Info: React.FC<InfoProps> = ({
               <div>{travel_time} Days</div>
             </div>
             {open && (
-              <div className="text-white text-sm ">
+              <p className="text-white text-sm ">
                 {formatItinerary(itinerary!)}
-              </div>
+              </p>
             )}
           </div>
         </div>
