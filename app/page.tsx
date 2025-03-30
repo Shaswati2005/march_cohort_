@@ -34,7 +34,7 @@ export default function Home() {
   const router = useRouter();
   const [location, setLocation] = useState<string | null>(null);
   const [date, setDate] = useState<string | null>(null);
-
+  const [loading, setLoading] = useState(false);
   const [time, setTime] = useState<string | null>(null);
   const [interests, setInterests] = useState<string | null>(null);
   const [budget, setBudget] = useState<string | null>("5000");
@@ -75,6 +75,7 @@ export default function Home() {
 
   async function handleSubmit() {
     try {
+      setLoading(true);
       const response = await axios.post(
         "https://new-ucyk.onrender.com/api/travel_requests/",
         {
@@ -91,6 +92,7 @@ export default function Home() {
     } catch (error: unknown) {
       console.log(error);
     } finally {
+      setLoading(false);
       router.push(`/${user?.id}`);
     }
   }
@@ -343,6 +345,15 @@ export default function Home() {
       </div>
 
       <Footer />
+      <div
+        className={`fixed top-0 left-0  w-screen z-50 ${
+          loading ? "h-screen" : "h-0"
+        } bg-[#00000044] flex ${
+          loading ? "visible" : "hidden"
+        } justify-center items-center`}
+      >
+        <div className="loader"></div>
+      </div>
     </>
   );
 }
