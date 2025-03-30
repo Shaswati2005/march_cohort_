@@ -10,6 +10,7 @@ import axios from "axios";
 import Footer from "./components/Footer";
 import Image from "next/image";
 import Logo from "./components/Logo";
+import toast, { Toaster } from "react-hot-toast";
 
 export default function Home() {
   const tourism = [
@@ -41,9 +42,6 @@ export default function Home() {
   const [food, setFood] = useState("Veg");
 
   const { user, isSignedIn } = useUser();
-  const handleLocationSelect = (selectedLocation: string) => {
-    setLocation(selectedLocation);
-  };
 
   const locations = [
     { label: "delhi", value: "delhi" },
@@ -59,6 +57,7 @@ export default function Home() {
 
   function handleDateChange(event: ChangeEvent<HTMLInputElement>): void {
     setDate(event.target.value);
+    console.log(isFutureDate(event.target.value));
   }
 
   function handleInterestChange(event: ChangeEvent<HTMLInputElement>): void {
@@ -73,7 +72,34 @@ export default function Home() {
     setBudget(event.target.value);
   }
 
+  function isFutureDate(dateString: string): boolean {
+    const inputDate = new Date(dateString);
+    const today = new Date();
+
+    // Reset time to avoid issues with different time zones
+    today.setHours(0, 0, 0, 0);
+    inputDate.setHours(0, 0, 0, 0);
+
+    return inputDate > today; // Ensures the date is today or in the future
+  }
+
   async function handleSubmit() {
+    if (location == null || date == null || time == null || interests == null) {
+      toast.error("Please fill all values before submitting !");
+      return;
+    }
+    if (!isFutureDate(date)) {
+      toast.error("Please Enter Valid Date !");
+      return;
+    }
+    if (Number(budget!) < 5000) {
+      toast.error("Minimum Trip Budget must be 5000");
+      return;
+    }
+    if (Number(time) <= 0) {
+      toast.error("Trip duration must be atleast 1 day");
+      return;
+    }
     try {
       setLoading(true);
       const response = await axios.post(
@@ -223,14 +249,22 @@ export default function Home() {
             />
           </div>
 
-          <div className=" w-screen absolute center z-10 m-2 h-fit flex flex-col  lg:flex-row items-center justify-items-start text-[#c56b30] text-lg lg:text-2xl gap-10">
+          <div className=" w-screen absolute text-left center z-10 m-2 h-fit flex flex-col  lg:flex-row items-center justify-items-start text-[#c56b30] text-lg lg:text-2xl gap-10">
             <div className="md:px-5 py-2 rounded-lg  text-4xl lg:text-6xl xl:text-9xl w-fit max-w-200 text-wrap text-left h-fit">
               About Company
             </div>
             <div className="h-fit w-fit overflow-hidden ">
               <div className="flex w-screen lg:w-145 xl:w-175 scroll-anim 2xl:w-200 flex-row place-items-center justify-items-start gap-10">
                 <div className="flex flex-col items-center p-3   rounded-xl gap-5 max-w-100 min-w-70 h-100 hover:bg-[#231b1566]     text-white  bg-[#38230816] border  border-[#ffffff41] hover:text-white text-sm lg:text-xl">
-                  <div className="w-30 h-30 hover:animate-bounce rounded-[100%] bg-[#c38f4a65]   border border-white"></div>
+                  <div className="w-30 h-30 hover:animate-bounce rounded-[100%] bg-[#c38f4a65] flex justify-center items-center  border border-white">
+                    <Image
+                      src={"/traveler.svg"}
+                      alt=""
+                      width={150}
+                      height={150}
+                      objectFit="contain"
+                    />
+                  </div>
                   <div className="w-full h-fit text-wrap ">
                     At TravelSiders, we believe that travel is more than just a
                     journey—it’s an experience that transforms you. With years
@@ -240,7 +274,15 @@ export default function Home() {
                 </div>
 
                 <div className="flex flex-col items-center p-3 rounded-xl gap-5 max-w-100 min-w-70 h-100 hover:bg-[#231b1566]     text-white  bg-[#38230816] border  border-[#ffffff41] hover:text-white text-sm lg:text-xl">
-                  <div className="w-30 h-30 hover:animate-bounce rounded-[100%] bg-[#c38f4a65]   border border-white"></div>
+                  <div className="w-30 h-30 hover:animate-bounce rounded-[100%] bg-[#c38f4a65] flex justify-center items-center  border border-white">
+                    <Image
+                      src={"/personalize.svg"}
+                      alt=""
+                      width={150}
+                      height={150}
+                      objectFit="contain"
+                    />
+                  </div>
                   <div className="w-full h-fit text-wrap ">
                     Our goal is to simplify travel planning by offering
                     personalized, hassle-free experiences. From adventure
@@ -250,7 +292,15 @@ export default function Home() {
                 </div>
 
                 <div className="flex flex-col items-center p-3 rounded-xl gap-5 max-w-100 min-w-70 h-100 hover:bg-[#231b1566]     text-white  bg-[#38230816] border  border-[#ffffff41] hover:text-white text-sm lg:text-xl">
-                  <div className="w-30 h-30 hover:animate-bounce rounded-[100%] bg-[#c38f4a65]   border border-white"></div>
+                  <div className="w-30 h-30 hover:animate-bounce rounded-[100%] bg-[#c38f4a65] flex justify-center items-center  border border-white">
+                    <Image
+                      src={"/support.svg"}
+                      alt=""
+                      width={150}
+                      height={150}
+                      objectFit="contain"
+                    />
+                  </div>
                   <div className="w-full h-fit text-wrap ">
                     We provide expert guidance, exclusive deals, and 24/7
                     customer support, ensuring a smooth and delightful travel
@@ -259,7 +309,15 @@ export default function Home() {
                 </div>
 
                 <div className="flex flex-col items-center p-3 rounded-xl gap-5 max-w-100 min-w-70 h-100 hover:bg-[#231b1566]     text-white  bg-[#38230816] border  border-[#ffffff41] hover:text-white text-sm lg:text-xl">
-                  <div className="w-30 h-30 hover:animate-bounce rounded-[100%] bg-[#c38f4a65]   border border-white"></div>
+                  <div className="w-30 h-30 hover:animate-bounce rounded-[100%] bg-[#c38f4a65]  flex justify-center items-center border border-white">
+                    <Image
+                      src={"/trip.svg"}
+                      alt=""
+                      width={150}
+                      height={150}
+                      objectFit="contain"
+                    />
+                  </div>
                   <div className="w-full h-fit text-wrap ">
                     Whether you're a solo traveler, a couple, or a family, we
                     bring you the best travel experiences with comfort and ease.
@@ -267,7 +325,15 @@ export default function Home() {
                   </div>
                 </div>
                 <div className="flex flex-col items-center p-3   rounded-xl gap-5 max-w-100 min-w-70 h-100 hover:bg-[#231b1566]     text-white  bg-[#38230816] border  border-[#ffffff41] hover:text-white text-sm lg:text-xl">
-                  <div className="w-30 h-30 hover:animate-bounce rounded-[100%] bg-[#c38f4a65]   border border-white"></div>
+                  <div className="w-30 h-30 hover:animate-bounce rounded-[100%] bg-[#c38f4a65] flex justify-center items-center  border border-white">
+                    <Image
+                      src={"/traveler.svg"}
+                      alt=""
+                      width={150}
+                      height={150}
+                      objectFit="contain"
+                    />
+                  </div>
                   <div className="w-full h-fit text-wrap ">
                     At TravelSiders, we believe that travel is more than just a
                     journey—it’s an experience that transforms you. With years
@@ -277,7 +343,15 @@ export default function Home() {
                 </div>
 
                 <div className="flex flex-col items-center p-3 rounded-xl gap-5 max-w-100 min-w-70 h-100 hover:bg-[#231b1566]     text-white  bg-[#38230816] border  border-[#ffffff41] hover:text-white text-sm lg:text-xl">
-                  <div className="w-30 h-30 hover:animate-bounce rounded-[100%] bg-[#c38f4a65]   border border-white"></div>
+                  <div className="w-30 h-30 hover:animate-bounce rounded-[100%] bg-[#c38f4a65] flex justify-center items-center   border border-white">
+                    <Image
+                      src={"/personalize.svg"}
+                      alt=""
+                      width={150}
+                      height={150}
+                      objectFit="contain"
+                    />
+                  </div>
                   <div className="w-full h-fit text-wrap ">
                     Our goal is to simplify travel planning by offering
                     personalized, hassle-free experiences. From adventure
@@ -287,8 +361,16 @@ export default function Home() {
                 </div>
 
                 <div className="flex flex-col items-center p-3 rounded-xl gap-5 max-w-100 min-w-70 h-100 hover:bg-[#231b1566]     text-white  bg-[#38230816] border  border-[#ffffff41] hover:text-white text-sm lg:text-xl">
-                  <div className="w-30 h-30 hover:animate-bounce rounded-[100%] bg-[#c38f4a65]   border border-white"></div>
-                  <div className="w-full h-fit text-wrap ">
+                  <div className="w-30 h-30 hover:animate-bounce rounded-[100%] bg-[#c38f4a65] flex justify-center items-center   border border-white">
+                    <Image
+                      src={"/support.svg"}
+                      alt=""
+                      width={150}
+                      height={150}
+                      objectFit="contain"
+                    />
+                  </div>
+                  <div className="w-full h-fit text-wrap  ">
                     We provide expert guidance, exclusive deals, and 24/7
                     customer support, ensuring a smooth and delightful travel
                     experience every time.
@@ -296,7 +378,15 @@ export default function Home() {
                 </div>
 
                 <div className="flex flex-col items-center p-3 rounded-xl gap-5 max-w-100 min-w-70 h-100 hover:bg-[#231b1566]     text-white  bg-[#38230816] border  border-[#ffffff41] hover:text-white text-sm lg:text-xl">
-                  <div className="w-30 h-30 hover:animate-bounce rounded-[100%] bg-[#c38f4a65]   border border-white"></div>
+                  <div className="w-30 h-30 hover:animate-bounce rounded-[100%] bg-[#c38f4a65]  flex justify-center items-center border border-white">
+                    <Image
+                      src={"/trip.svg"}
+                      alt=""
+                      width={150}
+                      height={150}
+                      objectFit="contain"
+                    />
+                  </div>
                   <div className="w-full h-fit text-wrap ">
                     Whether you're a solo traveler, a couple, or a family, we
                     bring you the best travel experiences with comfort and ease.
@@ -376,6 +466,7 @@ export default function Home() {
       >
         <div className="loader"></div>
       </div>
+      <Toaster />
     </>
   );
 }

@@ -99,8 +99,9 @@ const Info: React.FC<InfoProps> = ({
       );
       const data = await res.json();
       console.log(data);
-      if (data.photos[0].src.large == null) {
+      if (data.total_results == 0) {
         setImage("/bg1.jpg");
+        return;
       }
       setImage(data.photos[0].src.large);
     } finally {
