@@ -112,12 +112,12 @@ export default function Home() {
           </div>
           <div className="pt-30 flex flex-col absolute bottom-0   gap-10 items-center lg:items-start justify-end  lg:p-30 p-20">
             <div className=" flex flex-col gap-10 mt-16 ">
-              <h1 className="font-extrabold  text-5xl lg:text-9xl text-white ephesis-regular  ">
+              <h1 className="  ">
                 <Logo />
               </h1>
 
               <h2 className="lg:pl-[30%] ml-0 lg:ml-10% pl-[5%]  poppins-thin tgowild font-stretch-ultra-expanded   lg:text-3xl flex items-end justify-end  ">
-                {`Let's personalise your travels`}
+                Let &apos;s personalise your travels
               </h2>
             </div>
             <div className="lg:px-45 py-7 ">

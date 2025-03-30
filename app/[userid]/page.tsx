@@ -210,6 +210,10 @@ id,user,city,interests,travelDate,travelTime,itinerary
               <div className="text-2xl font-semibold">{interests}</div>
               <ul>{formatItinerary(itinerary)}</ul>
             </div>
+              <span>
+                <h3></h3>
+              <button>Delete Itinerary</button>
+            </span>
           </button>
           <div
             className={`${

@@ -21,7 +21,6 @@ const Info: React.FC<InfoProps> = ({
   travel_time,
   itinerary,
 }) => {
-  
   const [open, setopen] = useState(false);
   const [image, setImage] = useState("/bg1.jpg");
   const [loading, setLoading] = useState(false);
@@ -32,8 +31,8 @@ const Info: React.FC<InfoProps> = ({
     const lines = itineraryString
       .replaceAll("+", "")
       .replaceAll("*", "")
-      .replaceAll("-","")
-      .replaceAll(":","")
+      .replaceAll("-", "")
+      .replaceAll(":", "")
       // .replace(/\*\*/g, "") // Remove all **
       // .replace(/\*/g, "") // Remove all *
       .split("\n")
@@ -47,35 +46,42 @@ const Info: React.FC<InfoProps> = ({
       if (line.includes("Budget Breakdown")) {
         budgetStart = true;
         formatted.push(
-          <ul className="w-full px-2 text-left" key={index}>
+          <ul
+            className="w-full px-2 text-left mt-5 text-xl font-medium font-sans mb-2"
+            key={index}
+          >
             Budget Breakdown:
           </ul>
         );
-      }
-      else if(line.includes("Food")){
+      } else if (line.includes("Food")) {
         formatted.push(
-          <ul className="w-full px-2 text-left" key={index}>
+          <ul
+            className="w-full px-2 text-left mt-5 text-xl font-medium font-sans mb-2 "
+            key={index}
+          >
             Food:
           </ul>
-        )
-      }
-       else if (budgetStart) {
-        formatted.push(
-          <li key={index} className="w-full px-2 text-left">
-            - {line.replace(/: /g, ": ₹")}
-          </li>
         );
       } else if (line.startsWith("Day")) {
         formatted.push(
-          <li key={index} className="w-full px-2  text-left">
-            {line}:
+          <ul
+            className="w-full px-2 text-center mt-5 text-xl font-medium font-sans mb-2 bg-[#00000074]"
+            key={index}
+          >
+            {line}
+          </ul>
+        );
+      } else if (budgetStart) {
+        formatted.push(
+          <li key={index} className="w-full px-2 text-left ">
+            - {line.replace(/: /g, ": ₹")}
           </li>
         );
       } else {
         formatted.push(
-          <ul key={index} className="w-full px-2 text-left">
+          <li key={index} className="w-full px-2 text-left  ">
             &nbsp;&nbsp;• {line}
-          </ul>
+          </li>
         );
       }
     });
