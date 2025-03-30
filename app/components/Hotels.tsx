@@ -40,10 +40,10 @@ const Hotels: React.FC<hotelsProps> = ({
               {address}
             </h2>
           )}
-          <h4 className="text-lg lg:text-xl font-sans text-white font-normal  rounded-xl ">
+          <div className="text-lg lg:text-xl font-sans text-white font-normal  rounded-xl ">
             Price(per night)
-            <h2 className=" rounded-md text-green-300">Rs.{price}</h2>
-          </h4>
+            <h3 className=" rounded-md text-green-300">Rs.{price}</h3>
+          </div>
         </div>
         <div className=" flex flex-col justify-center items-center">
           <h3>User Ratings</h3>

@@ -7,9 +7,9 @@ export async function POST(req: NextRequest) {
 
     const { itinerary } = body;
 
-    const response = await axios.post(`http://new-ucyk.onrender.com/get_hotel_by_itinerary`, {
+    const response = await axios.post(`http://new-ucyk.onrender.com/get_hotel_by_itinerary/`, {
         data: {
-            'itinerary': itinerary
+            itinerary: itinerary
         }
     });
 

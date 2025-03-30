@@ -251,6 +251,16 @@ id,user,city,interests,travelDate,travelTime,itinerary
               </span>
               <div className="text-2xl font-semibold">{interests}</div>
               <ul>{formatItinerary(itinerary)}</ul>
+              <div className="h-fit w-full flex px-6 py-2 justify-evenly items-center text-xl ">
+                <h3>Show hotels based on itinerary</h3>
+                <button
+                  onClick={() => {router.push(`/bookings/${itinerary}`)}}
+                  className="w-fit z-20 h-fit px-4 text-md py-2 rounded-lg hover:bg-blue-600 hover:border-black bg-blue-400 border-2 border-blue-800"
+                >
+                  Take me
+                </button>
+              </div>
+              <hr className="w-3/4 bg-gray-500 my-4"></hr>
               <div className="h-fit w-full flex px-6 py-2 justify-between items-center text-xl bg-[#00000077]">
                 <h3>Don't Like the itinerary ?</h3>
                 <button
