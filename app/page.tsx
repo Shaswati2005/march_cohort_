@@ -200,16 +200,16 @@ export default function Home() {
 
        </div>
 
-        <div className=" absolute center z-10 m-2 h-fit flex flex-col  lg:flex-row items-center justify-items-start text-[#c56b30] text-lg lg:text-2xl gap-10">
+        <div className=" w-screen absolute center z-10 m-2 h-fit flex flex-col  lg:flex-row items-center justify-items-start text-[#c56b30] text-lg lg:text-2xl gap-10">
          
             <div className="md:px-5 py-2 rounded-lg  text-4xl lg:text-6xl xl:text-9xl w-fit max-w-200 text-wrap text-left h-fit">
               About Company
             </div>
 
-            <div className="px-10 flex flex-row items-center justify-center lg:items-start lg:justify-start gap-10 overflow-x-auto">
+            <div className="flex w-screen lg:w-145 xl:w-175 2xl:w-200 flex-row place-items-center justify-items-start overflow-x-scroll gap-10">
             
             
-            <div className="flex flex-col items-center p-3 rounded-xl gap-5 max-w-150 h-100 hover:bg-[#231b1566]     text-white  bg-[#38230816] border  border-[#ffffff41] hover:text-white text-sm lg:text-xl">
+            <div className="flex flex-col items-center p-3   rounded-xl gap-5 max-w-100 min-w-70 h-100 hover:bg-[#231b1566]     text-white  bg-[#38230816] border  border-[#ffffff41] hover:text-white text-sm lg:text-xl">
 
               <div className="w-30 h-30 hover:animate-bounce rounded-[100%] bg-[#c38f4a65]   border border-white"></div>
               <div className="w-full h-fit text-wrap ">
@@ -220,7 +220,7 @@ export default function Home() {
             </div>
 
 
-            <div className="flex flex-col items-center p-3 rounded-xl gap-5 max-w-150 h-100 hover:bg-[#231b1566]     text-white  bg-[#38230816] border  border-[#ffffff41] hover:text-white text-sm lg:text-xl">
+            <div className="flex flex-col items-center p-3 rounded-xl gap-5 max-w-100 min-w-70 h-100 hover:bg-[#231b1566]     text-white  bg-[#38230816] border  border-[#ffffff41] hover:text-white text-sm lg:text-xl">
 
               <div className="w-30 h-30 hover:animate-bounce rounded-[100%] bg-[#c38f4a65]   border border-white"></div>
               <div className="w-full h-fit text-wrap ">
@@ -229,6 +229,50 @@ export default function Home() {
                 scrambled it to make a type
               </div>
             </div>
+
+            <div className="flex flex-col items-center p-3 rounded-xl gap-5 max-w-100 min-w-70 h-100 hover:bg-[#231b1566]     text-white  bg-[#38230816] border  border-[#ffffff41] hover:text-white text-sm lg:text-xl">
+
+              <div className="w-30 h-30 hover:animate-bounce rounded-[100%] bg-[#c38f4a65]   border border-white"></div>
+              <div className="w-full h-fit text-wrap ">
+                has been the industry's standard dummy text ever since the
+                1500s, when an unknown printer took a galley of type and
+                scrambled it to make a type
+              </div>
+            </div>
+
+
+            <div className="flex flex-col items-center p-3 rounded-xl gap-5 max-w-100 min-w-70 h-100 hover:bg-[#231b1566]     text-white  bg-[#38230816] border  border-[#ffffff41] hover:text-white text-sm lg:text-xl">
+
+              <div className="w-30 h-30 hover:animate-bounce rounded-[100%] bg-[#c38f4a65]   border border-white"></div>
+              <div className="w-full h-fit text-wrap ">
+                has been the industry's standard dummy text ever since the
+                1500s, when an unknown printer took a galley of type and
+                scrambled it to make a type
+              </div>
+            </div>
+
+
+            <div className="flex flex-col items-center p-3 rounded-xl gap-5 max-w-100 min-w-70 h-100 hover:bg-[#231b1566]     text-white  bg-[#38230816] border  border-[#ffffff41] hover:text-white text-sm lg:text-xl">
+
+              <div className="w-30 h-30 hover:animate-bounce rounded-[100%] bg-[#c38f4a65]   border border-white"></div>
+              <div className="w-full h-fit text-wrap ">
+                has been the industry's standard dummy text ever since the
+                1500s, when an unknown printer took a galley of type and
+                scrambled it to make a type
+              </div>
+            </div>
+
+
+            <div className="flex flex-col items-center p-3 rounded-xl gap-5 max-w-100 min-w-70 h-100 hover:bg-[#231b1566]     text-white  bg-[#38230816] border  border-[#ffffff41] hover:text-white text-sm lg:text-xl">
+
+              <div className="w-30 h-30 hover:animate-bounce rounded-[100%] bg-[#c38f4a65]   border border-white"></div>
+              <div className="w-full h-fit text-wrap ">
+                has been the industry's standard dummy text ever since the
+                1500s, when an unknown printer took a galley of type and
+                scrambled it to make a type
+              </div>
+            </div>
+            
 
 
             
