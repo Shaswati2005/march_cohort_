@@ -246,6 +246,14 @@ html {
   stroke-dashoffset: 300;
   animation: strokeAnim 4s forwards ease-out;
 }
+#minilogo path {
+  fill: transparent;
+  stroke: #fff;
+  stroke-width: 1;
+  stroke-dasharray: 300;
+  stroke-dashoffset: 300;
+  animation: strokeAnim2 6s infinite ease-out;
+}
 
 @keyframes strokeAnim {
   0% {
@@ -258,6 +266,26 @@ html {
   100% {
     fill: #fff;
     stroke-dashoffset: 0;
+  }
+}
+@keyframes strokeAnim2 {
+  0% {
+    stroke-dashoffset: 300;
+    fill: transparent;
+  }
+  25% {
+    fill: transparent;
+  }
+  50% {
+    fill: #fff;
+    stroke-dashoffset: 0;
+  }
+  75% {
+    fill: transparent;
+  }
+  100% {
+    fill: transparent;
+    stroke-dashoffset: 300;
   }
 }
 
