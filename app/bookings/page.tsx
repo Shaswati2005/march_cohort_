@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 import Hotels from "../components/Hotels";
 
-const page = () => {
+const Page = () => {
   return (
     <div className="w-screen h-screen overflow-y-auto flex flex-col items-center gap-10  relative">
       <div className="absolute inset-0 duration-300">
@@ -56,4 +56,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;
