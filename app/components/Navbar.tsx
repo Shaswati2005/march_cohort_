@@ -12,8 +12,8 @@ const Navbar = () => {
   };
 
   return (
-    <div className="fixed top-0 left-0 w-screen z-30 lg:text-xl font-bold font-stretch-normal">
-      <div className="flex lg:hidden flex-row items-center justify-between px-4 py-2 bg-[#ffffff43] bg-opacity-50">
+    <div className="fixed top-0 left-0 w-screen z-30 lg:text-xl  bg-[#c38f4a8a] font-bold font-stretch-normal">
+      <div className="flex lg:hidden flex-row items-center justify-between px-4 py-2  bg-opacity-50">
         <div>logo</div>
         <button onClick={toggleMenu} className="text-[#ffffff]">
           {isMenuOpen ? "Close" : "Menu"}
@@ -36,6 +36,11 @@ const Navbar = () => {
           </button>
           <Link href={"/"} title="past " className="relative group  hover:scale-110 transition-all duration-300">
             Past tours
+            <div className="absolute bottom-0 left-0 w-0 h-1 bg-[#c38f4a] transition-all duration-300 ease-in-out group-hover:w-full"></div>
+          </Link>
+
+          <Link href={"/"} title="past " className="relative group  hover:scale-110 transition-all duration-300">
+            Bookings
             <div className="absolute bottom-0 left-0 w-0 h-1 bg-[#c38f4a] transition-all duration-300 ease-in-out group-hover:w-full"></div>
           </Link>
           <Link href={"/"} title="updates" className="relative group  hover:scale-110 transition-all duration-300">
@@ -74,6 +79,9 @@ const Navbar = () => {
             <button  className="hover:bg-[#c3704a4c] w-full h-fit text-center">Destination</button>
             <Link href={"/"} title="past "  className="hover:bg-[#c3704a4c] w-full h-fit text-center">
               Past tours
+            </Link>
+            <Link href={"/"} title="home" className="hover:bg-[#c3704a4c] w-full h-fit text-center">
+              Bookings
             </Link>
             <Link href={"/"} title="updates "  className="hover:bg-[#c3704a4c] w-full h-fit text-center">
               Updates
