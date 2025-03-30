@@ -209,11 +209,16 @@ id,user,city,interests,travelDate,travelTime,itinerary
               </span>
               <div className="text-2xl font-semibold">{interests}</div>
               <ul>{formatItinerary(itinerary)}</ul>
+              <div className="h-fit w-full flex px-6 py-2 justify-between items-center text-xl bg-[#00000077]">
+                <h3>Don't Like the itinerary ?</h3>
+                <button
+                  onClick={() => {}}
+                  className="w-fit z-20 h-fit px-4 text-md py-2 rounded-lg hover:bg-red-600 hover:border-black bg-red-400 border-2 border-red-800"
+                >
+                  Delete Itinerary
+                </button>
+              </div>
             </div>
-              <span>
-                <h3></h3>
-              <button>Delete Itinerary</button>
-            </span>
           </button>
           <div
             className={`${
