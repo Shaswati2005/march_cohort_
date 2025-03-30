@@ -1,10 +1,11 @@
 "use client";
 import { useUser } from "@clerk/nextjs";
-import { useParams } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 import { JSX, useEffect, useState } from "react";
 import Info from "../components/Info";
 import Image from "next/image";
-import { Itim } from "next/font/google";
+import toast, { Toaster } from "react-hot-toast";
+import { json } from "stream/consumers";
 interface Itinerary {
   id: number;
   user: string;
@@ -96,7 +97,7 @@ id,user,city,interests,travelDate,travelTime,itinerary
   const [travelTime, setTravelTime] = useState("");
   const [itinerary, setItinerary] = useState("");
   const [city, setCity] = useState("Delhi");
-
+  const router = useRouter();
   async function fetchImages(query: string) {
     try {
       setLoading(true);
@@ -105,8 +106,9 @@ id,user,city,interests,travelDate,travelTime,itinerary
       );
       const data = await res.json();
       console.log(data);
-      if (data.photos[0].src.large == null) {
+      if (data.total_results == 0) {
         setImage("/bg1.jpg");
+        return;
       }
       setImage(data.photos[0].src.large2x);
     } finally {
@@ -128,17 +130,16 @@ id,user,city,interests,travelDate,travelTime,itinerary
     const fetchItineraries = async () => {
       try {
         setLoading(true);
-        const response = await fetch(
-          `https://new-ucyk.onrender.com/get_itinerary_by_user/?user_id=${userId}`
-        );
+
+        const response = await fetch(`/api/getItineraries/?user=${userId}`);
 
         if (!response.ok) {
           return <h1>Could'nt fetch iterinaries</h1>;
         }
         const data = await response.json();
-        console.log(data);
+        console.log(data.data);
 
-        setItineraries(data);
+        setItineraries(data.data);
       } catch (err) {
         console.error("Error fetching itineraries:", err);
       } finally {
@@ -148,7 +149,48 @@ id,user,city,interests,travelDate,travelTime,itinerary
 
     fetchItineraries();
   }, [params.userid]);
+  const deleteIterinary = async () => {
+    try {
+      const response = await fetch(`/api/deleteIt`, {
+        method: "DELETE",
+        body: JSON.stringify({ user: userId, id: id }),
+      });
 
+      toast.success("Deleted itinerary successfully !");
+      console.log(response);
+      router.refresh();
+    } catch (error: unknown) {
+      console.log(error);
+      toast.error("Could not delete itinerary !");
+    }
+  };
+
+  const openToast = () => {
+    toast.custom((t) => (
+      <div className="flex flex-col h-fit w-fit p-4 gap-2 justify-center items-center bg-white rounded-2xl">
+        <div>Confirm : Do you really want to delete this itinerary ?</div>
+        <span className="flex justify-evenly w-full items-center ">
+          <button
+            onClick={() => {
+              deleteIterinary();
+              toast.dismiss(t.id);
+            }}
+            className="w-fit h-fit py-2 px-4 font-sans rounded-xl hover:cursor-pointer hover:bg-red-200 text-white bg-red-500"
+          >
+            YES
+          </button>
+          <button
+            onClick={() => {
+              toast.dismiss(t.id);
+            }}
+            className="text-blue-400 hover:text-blue-200 hover:cursor-pointer"
+          >
+            Cancel
+          </button>
+        </span>
+      </div>
+    ));
+  };
   if (loading) {
     return (
       <div className="text-center text-lg w-screen h-screen text-[#c56b30] bg-white flex justify-center items-center">
@@ -178,7 +220,7 @@ id,user,city,interests,travelDate,travelTime,itinerary
         <h2>No itineraries found.</h2>
       ) : (
         <div>
-          <button
+          <div
             className={`${
               open
                 ? `w-screen h-screen  lg:w-[1200px] lg:h-[800px] flex flex-col items-center   overflow-auto relative border rounded-2xl `
@@ -212,14 +254,16 @@ id,user,city,interests,travelDate,travelTime,itinerary
               <div className="h-fit w-full flex px-6 py-2 justify-between items-center text-xl bg-[#00000077]">
                 <h3>Don't Like the itinerary ?</h3>
                 <button
-                  onClick={() => {}}
+                  onClick={() => {
+                    openToast();
+                  }}
                   className="w-fit z-20 h-fit px-4 text-md py-2 rounded-lg hover:bg-red-600 hover:border-black bg-red-400 border-2 border-red-800"
                 >
                   Delete Itinerary
                 </button>
               </div>
             </div>
-          </button>
+          </div>
           <div
             className={`${
               !open ? `` : `hidden`
@@ -255,6 +299,7 @@ id,user,city,interests,travelDate,travelTime,itinerary
           </div>
         </div>
       )}
+      <Toaster />
     </div>
   );
 };
