@@ -5,11 +5,11 @@
   --background: #ffffff;
   --foreground: #171717;
 }
-.userscreen{
-  background-image: url('/useridbg.jpg');
-  background-size: cover  ;
+.userscreen {
+  background-image: url("/useridbg.jpg");
+  background-size: cover;
   background-position: center;
-  opacity:50%;
+  opacity: 50%;
 }
 
 @theme inline {
@@ -236,4 +236,27 @@ html {
 
 ::-webkit-scrollbar-thumb:hover {
   background: transparent; /* Slightly brighter on hover */
+}
+
+#logosvg path {
+  fill: transparent;
+  stroke: #fff;
+  stroke-width: 1;
+  stroke-dasharray: 300;
+  stroke-dashoffset: 300;
+  animation: strokeAnim 4s forwards ease-out;
+}
+
+@keyframes strokeAnim {
+  0% {
+    stroke-dashoffset: 300;
+    fill: transparent;
+  }
+  75% {
+    fill: transparent;
+  }
+  100% {
+    fill: #fff;
+    stroke-dashoffset: 0;
+  }
 }
