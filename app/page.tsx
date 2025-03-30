@@ -227,59 +227,81 @@ export default function Home() {
             <div className="md:px-5 py-2 rounded-lg  text-4xl lg:text-6xl xl:text-9xl w-fit max-w-200 text-wrap text-left h-fit">
               About Company
             </div>
-
-            <div className="flex w-screen lg:w-145 xl:w-175 2xl:w-200 flex-row place-items-center justify-items-start overflow-x-scroll gap-10">
-              <div className="flex flex-col items-center p-3   rounded-xl gap-5 max-w-100 min-w-70 h-100 hover:bg-[#231b1566]     text-white  bg-[#38230816] border  border-[#ffffff41] hover:text-white text-sm lg:text-xl">
-                <div className="w-30 h-30 hover:animate-bounce rounded-[100%] bg-[#c38f4a65]   border border-white"></div>
-                <div className="w-full h-fit text-wrap ">
-                  has been the industry's standard dummy text ever since the
-                  1500s, when an unknown printer took a galley of type and
-                  scrambled it to make a type
+            <div className="h-fit w-fit overflow-hidden ">
+              <div className="flex w-screen lg:w-145 xl:w-175 scroll-anim 2xl:w-200 flex-row place-items-center justify-items-start gap-10">
+                <div className="flex flex-col items-center p-3   rounded-xl gap-5 max-w-100 min-w-70 h-100 hover:bg-[#231b1566]     text-white  bg-[#38230816] border  border-[#ffffff41] hover:text-white text-sm lg:text-xl">
+                  <div className="w-30 h-30 hover:animate-bounce rounded-[100%] bg-[#c38f4a65]   border border-white"></div>
+                  <div className="w-full h-fit text-wrap ">
+                    At TravelSiders, we believe that travel is more than just a
+                    journey—it’s an experience that transforms you. With years
+                    of expertise, we curate unforgettable trips tailored to your
+                    needs.
+                  </div>
                 </div>
-              </div>
 
-              <div className="flex flex-col items-center p-3 rounded-xl gap-5 max-w-100 min-w-70 h-100 hover:bg-[#231b1566]     text-white  bg-[#38230816] border  border-[#ffffff41] hover:text-white text-sm lg:text-xl">
-                <div className="w-30 h-30 hover:animate-bounce rounded-[100%] bg-[#c38f4a65]   border border-white"></div>
-                <div className="w-full h-fit text-wrap ">
-                  has been the industry's standard dummy text ever since the
-                  1500s, when an unknown printer took a galley of type and
-                  scrambled it to make a type
+                <div className="flex flex-col items-center p-3 rounded-xl gap-5 max-w-100 min-w-70 h-100 hover:bg-[#231b1566]     text-white  bg-[#38230816] border  border-[#ffffff41] hover:text-white text-sm lg:text-xl">
+                  <div className="w-30 h-30 hover:animate-bounce rounded-[100%] bg-[#c38f4a65]   border border-white"></div>
+                  <div className="w-full h-fit text-wrap ">
+                    Our goal is to simplify travel planning by offering
+                    personalized, hassle-free experiences. From adventure
+                    getaways to relaxing retreats, we ensure every trip is
+                    extraordinary.
+                  </div>
                 </div>
-              </div>
 
-              <div className="flex flex-col items-center p-3 rounded-xl gap-5 max-w-100 min-w-70 h-100 hover:bg-[#231b1566]     text-white  bg-[#38230816] border  border-[#ffffff41] hover:text-white text-sm lg:text-xl">
-                <div className="w-30 h-30 hover:animate-bounce rounded-[100%] bg-[#c38f4a65]   border border-white"></div>
-                <div className="w-full h-fit text-wrap ">
-                  has been the industry's standard dummy text ever since the
-                  1500s, when an unknown printer took a galley of type and
-                  scrambled it to make a type
+                <div className="flex flex-col items-center p-3 rounded-xl gap-5 max-w-100 min-w-70 h-100 hover:bg-[#231b1566]     text-white  bg-[#38230816] border  border-[#ffffff41] hover:text-white text-sm lg:text-xl">
+                  <div className="w-30 h-30 hover:animate-bounce rounded-[100%] bg-[#c38f4a65]   border border-white"></div>
+                  <div className="w-full h-fit text-wrap ">
+                    We provide expert guidance, exclusive deals, and 24/7
+                    customer support, ensuring a smooth and delightful travel
+                    experience every time.
+                  </div>
                 </div>
-              </div>
 
-              <div className="flex flex-col items-center p-3 rounded-xl gap-5 max-w-100 min-w-70 h-100 hover:bg-[#231b1566]     text-white  bg-[#38230816] border  border-[#ffffff41] hover:text-white text-sm lg:text-xl">
-                <div className="w-30 h-30 hover:animate-bounce rounded-[100%] bg-[#c38f4a65]   border border-white"></div>
-                <div className="w-full h-fit text-wrap ">
-                  has been the industry's standard dummy text ever since the
-                  1500s, when an unknown printer took a galley of type and
-                  scrambled it to make a type
+                <div className="flex flex-col items-center p-3 rounded-xl gap-5 max-w-100 min-w-70 h-100 hover:bg-[#231b1566]     text-white  bg-[#38230816] border  border-[#ffffff41] hover:text-white text-sm lg:text-xl">
+                  <div className="w-30 h-30 hover:animate-bounce rounded-[100%] bg-[#c38f4a65]   border border-white"></div>
+                  <div className="w-full h-fit text-wrap ">
+                    Whether you're a solo traveler, a couple, or a family, we
+                    bring you the best travel experiences with comfort and ease.
+                    Your dream vacation starts here!
+                  </div>
                 </div>
-              </div>
-
-              <div className="flex flex-col items-center p-3 rounded-xl gap-5 max-w-100 min-w-70 h-100 hover:bg-[#231b1566]     text-white  bg-[#38230816] border  border-[#ffffff41] hover:text-white text-sm lg:text-xl">
-                <div className="w-30 h-30 hover:animate-bounce rounded-[100%] bg-[#c38f4a65]   border border-white"></div>
-                <div className="w-full h-fit text-wrap ">
-                  has been the industry's standard dummy text ever since the
-                  1500s, when an unknown printer took a galley of type and
-                  scrambled it to make a type
+                <div className="flex flex-col items-center p-3   rounded-xl gap-5 max-w-100 min-w-70 h-100 hover:bg-[#231b1566]     text-white  bg-[#38230816] border  border-[#ffffff41] hover:text-white text-sm lg:text-xl">
+                  <div className="w-30 h-30 hover:animate-bounce rounded-[100%] bg-[#c38f4a65]   border border-white"></div>
+                  <div className="w-full h-fit text-wrap ">
+                    At TravelSiders, we believe that travel is more than just a
+                    journey—it’s an experience that transforms you. With years
+                    of expertise, we curate unforgettable trips tailored to your
+                    needs.
+                  </div>
                 </div>
-              </div>
 
-              <div className="flex flex-col items-center p-3 rounded-xl gap-5 max-w-100 min-w-70 h-100 hover:bg-[#231b1566]     text-white  bg-[#38230816] border  border-[#ffffff41] hover:text-white text-sm lg:text-xl">
-                <div className="w-30 h-30 hover:animate-bounce rounded-[100%] bg-[#c38f4a65]   border border-white"></div>
-                <div className="w-full h-fit text-wrap ">
-                  has been the industry's standard dummy text ever since the
-                  1500s, when an unknown printer took a galley of type and
-                  scrambled it to make a type
+                <div className="flex flex-col items-center p-3 rounded-xl gap-5 max-w-100 min-w-70 h-100 hover:bg-[#231b1566]     text-white  bg-[#38230816] border  border-[#ffffff41] hover:text-white text-sm lg:text-xl">
+                  <div className="w-30 h-30 hover:animate-bounce rounded-[100%] bg-[#c38f4a65]   border border-white"></div>
+                  <div className="w-full h-fit text-wrap ">
+                    Our goal is to simplify travel planning by offering
+                    personalized, hassle-free experiences. From adventure
+                    getaways to relaxing retreats, we ensure every trip is
+                    extraordinary.
+                  </div>
+                </div>
+
+                <div className="flex flex-col items-center p-3 rounded-xl gap-5 max-w-100 min-w-70 h-100 hover:bg-[#231b1566]     text-white  bg-[#38230816] border  border-[#ffffff41] hover:text-white text-sm lg:text-xl">
+                  <div className="w-30 h-30 hover:animate-bounce rounded-[100%] bg-[#c38f4a65]   border border-white"></div>
+                  <div className="w-full h-fit text-wrap ">
+                    We provide expert guidance, exclusive deals, and 24/7
+                    customer support, ensuring a smooth and delightful travel
+                    experience every time.
+                  </div>
+                </div>
+
+                <div className="flex flex-col items-center p-3 rounded-xl gap-5 max-w-100 min-w-70 h-100 hover:bg-[#231b1566]     text-white  bg-[#38230816] border  border-[#ffffff41] hover:text-white text-sm lg:text-xl">
+                  <div className="w-30 h-30 hover:animate-bounce rounded-[100%] bg-[#c38f4a65]   border border-white"></div>
+                  <div className="w-full h-fit text-wrap ">
+                    Whether you're a solo traveler, a couple, or a family, we
+                    bring you the best travel experiences with comfort and ease.
+                    Your dream vacation starts here!
+                  </div>
                 </div>
               </div>
             </div>

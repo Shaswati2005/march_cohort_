@@ -362,3 +362,17 @@ html {
     transform: translate(200%);
   }
 }
+
+.scroll-anim {
+  transition: all;
+  animation: infiScroll 30s infinite linear;
+}
+
+@keyframes infiScroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-120%);
+  }
+}
