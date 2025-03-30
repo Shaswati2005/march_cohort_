@@ -5,7 +5,6 @@ import { JSX, useEffect, useState } from "react";
 import Info from "../components/Info";
 import Image from "next/image";
 import toast, { Toaster } from "react-hot-toast";
-import { json } from "stream/consumers";
 interface Itinerary {
   id: number;
   user: string;
@@ -129,6 +128,7 @@ id,user,city,interests,travelDate,travelTime,itinerary
 
     const fetchItineraries = async () => {
       try {
+        console.log("Fetching");
         setLoading(true);
 
         const response = await fetch(`/api/getItineraries/?user=${userId}`);
@@ -138,9 +138,11 @@ id,user,city,interests,travelDate,travelTime,itinerary
         }
         const data = await response.json();
         console.log(data.data);
-
         setItineraries(data.data);
+        if (itineraries.length === 0) {
+        }
       } catch (err) {
+        setItineraries([]);
         console.error("Error fetching itineraries:", err);
       } finally {
         setLoading(false);
@@ -158,7 +160,7 @@ id,user,city,interests,travelDate,travelTime,itinerary
 
       toast.success("Deleted itinerary successfully !");
       console.log(response);
-      router.refresh();
+      router.push("/");
     } catch (error: unknown) {
       console.log(error);
       toast.error("Could not delete itinerary !");
@@ -254,7 +256,9 @@ id,user,city,interests,travelDate,travelTime,itinerary
               <div className="h-fit w-full flex px-6 py-2 justify-evenly items-center text-xl ">
                 <h3>Show hotels based on itinerary</h3>
                 <button
-                  onClick={() => {router.push(`/bookings/${itinerary}`)}}
+                  onClick={() => {
+                    router.push(`/bookings/${itinerary}`);
+                  }}
                   className="w-fit z-20 h-fit px-4 text-md py-2 rounded-lg hover:bg-blue-600 hover:border-black bg-blue-400 border-2 border-blue-800"
                 >
                   Take me
@@ -279,33 +283,36 @@ id,user,city,interests,travelDate,travelTime,itinerary
               !open ? `` : `hidden`
             } w-full mx-5 lg:mx-10 flex flex-row flex-wrap justify-between overflow-x-hidden gap-15 mb-20 mt-5`}
           >
-            {itineraries.map((itinerary) => (
-              <button
-                key={itinerary.id}
-                onClick={() => {
-                  setopen(!open);
-                  setCity(itinerary.city);
-                  setId(itinerary.id);
-                  setInterests(itinerary.interests);
-                  setTravelDate(itinerary.travel_date);
-                  setTravelTime(itinerary.travel_duration);
-                  setItinerary(itinerary.itinerary);
-                }}
-              >
-                <Info
-                  id={itinerary.id}
-                  user={itinerary.user}
-                  city={itinerary.city}
-                  interests={itinerary.interests}
-                  travel_date={itinerary.travel_date}
-                  travel_time={itinerary.travel_duration}
-                  itinerary={itinerary.itinerary}
-                  /*
-              id,user,city,interests,travelDate,travelTime,itinerary
-              */
-                />
-              </button>
-            ))}
+            {Array.isArray(itineraries) && itineraries.length > 0 ? (
+              <div>
+                {itineraries.map((itinerary) => (
+                  <button
+                    key={itinerary.id}
+                    onClick={() => {
+                      setopen(!open);
+                      setCity(itinerary.city);
+                      setId(itinerary.id);
+                      setInterests(itinerary.interests);
+                      setTravelDate(itinerary.travel_date);
+                      setTravelTime(itinerary.travel_duration);
+                      setItinerary(itinerary.itinerary);
+                    }}
+                  >
+                    <Info
+                      id={itinerary.id}
+                      user={itinerary.user}
+                      city={itinerary.city}
+                      interests={itinerary.interests}
+                      travel_date={itinerary.travel_date}
+                      travel_time={itinerary.travel_duration}
+                      itinerary={itinerary.itinerary}
+                    />
+                  </button>
+                ))}
+              </div>
+            ) : (
+              <h2>No itineraries found.</h2>
+            )}
           </div>
         </div>
       )}

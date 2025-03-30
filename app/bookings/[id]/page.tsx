@@ -1,20 +1,106 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { JSX, useEffect, useState } from "react";
 import Image from "next/image";
 import Hotels from "../../components/Hotels";
 import { useParams } from "next/navigation";
 import axios from "axios";
+import HotelCard from "@/app/components/HotelCard";
 
 const Page = () => {
+  // Define TypeScript types
+  type Hotel = {
+    name: string;
+    price: number;
+    rating: number;
+    website: string;
+  };
+
+  type Location = {
+    name: string;
+    hotels: Hotel[];
+  };
+  const [locs, setLocs] = useState<Location[]>([]);
+  function formatItinerary(itineraryString: string): JSX.Element[] {
+    const lines = itineraryString
+      .replaceAll("+", "")
+      .replaceAll("*", "")
+      .replaceAll("-", "")
+      .replaceAll(":", "")
+      .replaceAll(".", "")
+      // .replace(/\*\*/g, "") // Remove all **
+      // .replace(/\*/g, "") // Remove all *
+      .split("\n")
+      .map((line) => line.trim())
+      .filter((line) => line);
+
+    let formatted: JSX.Element[] = [];
+    let budgetStart = false;
+
+    lines.forEach((line, index) => {
+      if (line.includes("Budget Breakdown")) {
+        budgetStart = true;
+        formatted.push(
+          <ul
+            className="w-full px-2 text-left mt-5 text-xl font-medium font-sans mb-2"
+            key={index}
+          >
+            Budget Breakdown:
+          </ul>
+        );
+      } else if (line.includes("Food")) {
+        formatted.push(
+          <ul
+            className="w-full px-2 text-left mt-5 text-xl font-medium font-sans mb-2 "
+            key={index}
+          >
+            Food:
+          </ul>
+        );
+      } else if (line.startsWith("Day")) {
+        formatted.push(
+          <ul
+            className="w-full px-2 text-center mt-5 text-xl font-medium font-sans mb-2 bg-[#00000074]"
+            key={index}
+          >
+            {line}
+          </ul>
+        );
+      } else if (budgetStart) {
+        formatted.push(
+          <li key={index} className="w-full px-2 text-left ">
+            - {line.replace(/: /g, ": ₹")}
+          </li>
+        );
+      } else {
+        formatted.push(
+          <li key={index} className="w-full px-2 text-left  ">
+            &nbsp;&nbsp;• {line}
+          </li>
+        );
+      }
+    });
+
+    return formatted;
+  }
   const params = useParams();
-  const itinerary = params.id ? String(params.id) : "";
+  const it = params.id ? String(params.id) : "";
+  const [hotels, setHotels] = useState("");
   const fetchHotels = async () => {
     try {
-      const response = await axios.post(`/api/getHotels`, {
-        itinerary: itinerary,
-      });
-
-      const body = response.data;
+      const response = await axios.post(
+        `/api/getHotels`,
+        {
+          itinerary: it,
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      console.log(response);
+      const body = response.data.data.hotels;
+      setHotels(body);
 
       console.log(body);
     } catch (err: unknown) {
@@ -68,8 +154,8 @@ const Page = () => {
         </div>
 
         <div className="w-full h-fit py-10 px-2 flex flex-col items-center justify-start">
-          <div className="flex flex-col items-center h-fit w-fit gap-2">
-            <Hotels hotel="adaf" address="Himalaya" price={2442} rating={3} />
+          <div className="flex flex-col items-center h-fit w-fit gap-2 text-black">
+            {formatItinerary(hotels)}
             <hr className="bg-[#995a08] w-full " />
           </div>
         </div>
