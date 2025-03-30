@@ -202,10 +202,12 @@ id,user,city,interests,travelDate,travelTime,itinerary
               </h1>
               <hr className="w-3/4 bg-gray-500 my-5"></hr>
               <span className="flex justify-center items-center gap-4  w-full px-4">
-                <h2>Starting Date - {travelDate}</h2>
-                <h2>{travelTime} Days</h2>
+                <h2 className="text-2xl font-semibold">
+                  Starting Date - {travelDate}
+                </h2>
+                <h2 className="text-2xl font-semibold">{travelTime} Days</h2>
               </span>
-              <div>{interests}</div>
+              <div className="text-2xl font-semibold">{interests}</div>
               <ul>{formatItinerary(itinerary)}</ul>
             </div>
           </button>
