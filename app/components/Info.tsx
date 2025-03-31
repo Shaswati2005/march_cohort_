@@ -13,8 +13,6 @@ interface InfoProps {
 }
 
 const Info: React.FC<InfoProps> = ({
-  id,
-  user,
   city,
   interests,
   travel_date,
@@ -24,10 +22,8 @@ const Info: React.FC<InfoProps> = ({
   const [open, setopen] = useState(false);
   const [image, setImage] = useState("/bg1.jpg");
   const [loading, setLoading] = useState(false);
-  const handleHoverFunction = () => {
-    setopen(!open);
-  };
-  function formatItinerary(itineraryString: string): JSX.Element[] {
+
+  const formatItinerary = (itineraryString: string): JSX.Element[] => {
     const lines = itineraryString
       .replaceAll("+", "")
       .replaceAll("*", "")
@@ -87,7 +83,7 @@ const Info: React.FC<InfoProps> = ({
     });
 
     return formatted;
-  }
+  };
 
   if (loading) {
   }

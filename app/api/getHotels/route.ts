@@ -16,6 +16,7 @@ export async function POST(req: NextRequest) {
         console.log(data);
     return NextResponse.json({ data }, { status: 200 });
     } catch (error: unknown) {
+        console.log(error);
         return NextResponse.json("Could not fetch hotels",{status:500})
     }
 }

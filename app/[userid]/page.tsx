@@ -16,7 +16,7 @@ interface Itinerary {
 }
 
 const Page = () => {
-  function formatItinerary(itineraryString: string): JSX.Element[] {
+  const formatItinerary = (itineraryString: string): JSX.Element[] => {
     const lines = itineraryString
       .replaceAll("+", "")
       .replaceAll("*", "")
@@ -76,7 +76,7 @@ const Page = () => {
     });
 
     return formatted;
-  }
+  };
 
   const { user } = useUser();
   const [loading, setLoading] = useState(true);
@@ -134,7 +134,7 @@ id,user,city,interests,travelDate,travelTime,itinerary
         const response = await fetch(`/api/getItineraries/?user=${userId}`);
 
         if (!response.ok) {
-          return <h1>Could'nt fetch iterinaries</h1>;
+          return <h1>Could&apos;nt fetch iterinaries</h1>;
         }
         const data = await response.json();
         console.log(data.data);

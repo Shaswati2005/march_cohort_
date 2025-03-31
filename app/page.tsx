@@ -1,7 +1,7 @@
 "use client";
 
 import Cards from "./components/Cards";
-import { ChangeEvent, useState, useRef, useEffect } from "react";
+import { ChangeEvent, useState } from "react";
 import Achievement from "./components/Achievement";
 import { useUser } from "@clerk/nextjs";
 import Link from "next/link";
@@ -39,17 +39,9 @@ export default function Home() {
   const [time, setTime] = useState<string | null>(null);
   const [interests, setInterests] = useState<string | null>(null);
   const [budget, setBudget] = useState<string | null>("5000");
-  const [food, setFood] = useState("Veg");
+  const food = "Veg";
 
   const { user, isSignedIn } = useUser();
-
-  const locations = [
-    { label: "delhi", value: "delhi" },
-    { label: "raipur", value: "raipur" },
-    { label: "shimla", value: "shimla" },
-    { label: "puri", value: "puri" },
-    { label: "kolkata", value: "kolkata" },
-  ];
 
   function handleDestinationChange(event: ChangeEvent<HTMLInputElement>): void {
     setLocation(event.target.value);
@@ -267,7 +259,7 @@ export default function Home() {
                   </div>
                   <div className="w-full h-fit text-wrap ">
                     At TravelSiders, we believe that travel is more than just a
-                    journey—it’s an experience that transforms you. With years
+                    journey—it&apos;s an experience that transforms you. With years
                     of expertise, we curate unforgettable trips tailored to your
                     needs.
                   </div>
@@ -336,7 +328,7 @@ export default function Home() {
                   </div>
                   <div className="w-full h-fit text-wrap ">
                     At TravelSiders, we believe that travel is more than just a
-                    journey—it’s an experience that transforms you. With years
+                    journey—it&apos;s an experience that transforms you. With years
                     of expertise, we curate unforgettable trips tailored to your
                     needs.
                   </div>

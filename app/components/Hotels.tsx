@@ -15,7 +15,6 @@ const Hotels: React.FC<hotelsProps> = ({
   address,
   price,
   rating,
-  link,
   picture,
 }) => {
   return (

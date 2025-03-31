@@ -7,11 +7,6 @@ type Hotel = {
   website: string;
 };
 
-type Location = {
-  name: string;
-  hotels: Hotel[];
-};
-
 const HotelCard: React.FC<{ hotel: Hotel }> = ({ hotel }) => {
   return (
     <div className="bg-gray-100 p-4 rounded-lg shadow-lg flex justify-between">

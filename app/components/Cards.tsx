@@ -1,6 +1,5 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -31,7 +30,7 @@ const Cards: React.FC<CardsProps> = ({ title, description, image, link }) => {
             <p className="text-lg text-center">{description}</p>
           </div>
           <Link
-            href={link|| "/"}
+            href={link || "/"}
             className="w-15 h-15 rounded-[100%] border border-white bg-[#c56c3066] "
           />
         </div>

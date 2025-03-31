@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect } from "react";
 
 interface DropdownItem {
   label: string;
@@ -6,19 +6,23 @@ interface DropdownItem {
 }
 
 interface DropdownProps {
-  image?:string;
-  title?:string;
+  image?: string;
+  title?: string;
   label?: string;
   items: DropdownItem[];
-  type:string;
+  type: string;
   onSelect: (value: string) => void;
 }
 
-const Dropdown: React.FC<DropdownProps> = ({title, label, items, onSelect,type }) => {
-
-  const [val, setval] = useState({type});
+const Dropdown: React.FC<DropdownProps> = ({
+  title,
+  label,
+  items,
+  onSelect,
+  type,
+}) => {
   const [isOpen, setIsOpen] = useState(false);
- 
+
   const [selectedValue, setSelectedValue] = useState<string | null>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
@@ -34,21 +38,26 @@ const Dropdown: React.FC<DropdownProps> = ({title, label, items, onSelect,type }
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target as Node)
+      ) {
         setIsOpen(false);
       }
     };
 
-    document.addEventListener('mousedown', handleClickOutside);
+    document.addEventListener("mousedown", handleClickOutside);
 
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [dropdownRef]);
 
   return (
-    <div className="relative flex flex-row gap-5 text-left text-[#6ca22d]" ref={dropdownRef}>
-        
+    <div
+      className="relative flex flex-row gap-5 text-left text-[#6ca22d]"
+      ref={dropdownRef}
+    >
       <div>
         <div>{title}</div>
         <button
@@ -59,7 +68,9 @@ const Dropdown: React.FC<DropdownProps> = ({title, label, items, onSelect,type }
           aria-haspopup="true"
           onClick={toggleDropdown}
         >
-          {selectedValue ? items.find((item) => item.value === selectedValue)?.label : label}
+          {selectedValue
+            ? items.find((item) => item.value === selectedValue)?.label
+            : label}
           <svg
             className="-mr-1 ml-2 h-5 w-5"
             xmlns="http://www.w3.org/2000/svg"
@@ -78,7 +89,7 @@ const Dropdown: React.FC<DropdownProps> = ({title, label, items, onSelect,type }
 
       <div
         className={`${
-          isOpen ? 'absolute' : 'hidden'
+          isOpen ? "absolute" : "hidden"
         } mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none max-h-40 overflow-y-scroll`}
         role="menu"
         aria-orientation="vertical"
@@ -86,8 +97,11 @@ const Dropdown: React.FC<DropdownProps> = ({title, label, items, onSelect,type }
         tabIndex={-1}
       >
         <div className="py-1" role="none">
-
-          <input type='string' className='mx-2 my-1.5 border-green-600 rounded-smtext-sm ' placeholder='enter your choice'/>
+          <input
+            type="string"
+            className="mx-2 my-1.5 border-green-600 rounded-smtext-sm "
+            placeholder="enter your choice"
+          />
           {items.map((item) => (
             <button
               key={item.value}

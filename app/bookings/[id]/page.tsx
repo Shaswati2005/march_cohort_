@@ -1,26 +1,14 @@
 "use client";
 import React, { JSX, useEffect, useState } from "react";
 import Image from "next/image";
-import Hotels from "../../components/Hotels";
+
 import { useParams } from "next/navigation";
 import axios from "axios";
-import HotelCard from "@/app/components/HotelCard";
 
 const Page = () => {
   // Define TypeScript types
-  type Hotel = {
-    name: string;
-    price: number;
-    rating: number;
-    website: string;
-  };
 
-  type Location = {
-    name: string;
-    hotels: Hotel[];
-  };
-  const [locs, setLocs] = useState<Location[]>([]);
-  function formatItinerary(itineraryString: string): JSX.Element[] {
+  const formatItinerary = (itineraryString: string): JSX.Element[] => {
     const lines = itineraryString
       .replaceAll("+", "")
       .replaceAll("*", "")
@@ -81,7 +69,7 @@ const Page = () => {
     });
 
     return formatted;
-  }
+  };
   const params = useParams();
   const it = params.id ? String(params.id) : "";
   const [hotels, setHotels] = useState("");
