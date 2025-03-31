@@ -110,9 +110,6 @@ const Info: React.FC<InfoProps> = ({
     fetchImages(city);
   }, []);
 
-  const handleMouseOut = () => {
-    setopen(!open);
-  };
   return (
     <div
       onMouseOver={() => {

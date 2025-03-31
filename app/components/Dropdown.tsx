@@ -19,7 +19,7 @@ const Dropdown: React.FC<DropdownProps> = ({
   label,
   items,
   onSelect,
-  type,
+ 
 }) => {
   const [isOpen, setIsOpen] = useState(false);
 

@@ -311,7 +311,7 @@ export default function Home() {
                     />
                   </div>
                   <div className="w-full h-fit text-wrap ">
-                    Whether you're a solo traveler, a couple, or a family, we
+                    Whether you&apos;re a solo traveler, a couple, or a family, we
                     bring you the best travel experiences with comfort and ease.
                     Your dream vacation starts here!
                   </div>
@@ -380,7 +380,7 @@ export default function Home() {
                     />
                   </div>
                   <div className="w-full h-fit text-wrap ">
-                    Whether you're a solo traveler, a couple, or a family, we
+                    Whether you&apos;re a solo traveler, a couple, or a family, we
                     bring you the best travel experiences with comfort and ease.
                     Your dream vacation starts here!
                   </div>
